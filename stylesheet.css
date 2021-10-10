@@ -17,50 +17,55 @@ h1 {
 p { font-size: 20pt;   
 }
 
-#portfolio {
+
+
+
+.btn {
+    text-decoration: none;
     background-color: antiquewhite;
+    box-shadow: 2px 2px 10px grey;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 50px;
     box-shadow: 2px 2px 10px grey;
     font-size: 20px;
 }
 
-.button {
-    background-color: antiquewhite;
-    box-shadow: 2px 2px 10px grey;
-    padding: 20px;
-    border-radius: 50px
-  
+em {
+    position: 
 }
-
 #linkedIn { 
-    margin-top: 100px;
-    padding: 50px;
-    display: flex;
-    flex-direction: row-reverse;
-   left: 50%;
+   padding: 20px;
+   margin: 20px;
    text-decoration: none;
+   border-radius: 50%;  
+   box-shadow: 2px 2px 10px grey;
+   display: flex;
+   flex-direction: column;
 }
 
 #instragram { 
-    margin-top: 100px;
-    padding: 50px;
-    display: flex;
-    flex-direction: row;
-   right: 50%;
+   padding: 20px;
+   margin: 20px;
    text-decoration: none;
+   border-radius: 50%;
+   box-shadow: 2px 2px 10px grey;
+   display: flex;
+   flex-direction: column;
 }
 
 footer {
-    object-fit: cover bottom;
-    height: 400px;
-    background-position: center;
+    height: 50vh;
+  
+    background-position:center;
     background-image: url("/media/background_image.jpg");
     background-size:100vh;
     background-repeat: no-repeat;
-    border: 20px;
     animation: footer-load var(--load-time) ease-in;
 }
 
-#welcome {
+
+span #welcome {
     margin-bottom: 600vh;
  }
 
