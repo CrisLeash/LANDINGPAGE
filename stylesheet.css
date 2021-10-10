@@ -5,6 +5,7 @@ body {
  width: 100vw;
  --load-time: 1000ms;
 }
+
 section {
     margin: 50px;
 }
@@ -14,11 +15,9 @@ h1 {
     margin-bottom: 5vh;
 }
 
-p { font-size: 20pt;   
+p { 
+    font-size: 20pt;   
 }
-
-
-
 
 .btn {
     text-decoration: none;
@@ -31,43 +30,40 @@ p { font-size: 20pt;
     font-size: 20px;
 }
 
-em {
-    position: 
-}
 #linkedIn { 
-   padding: 20px;
-   margin: 20px;
+   padding: 40px;
+   margin: 40px;
+   position: absolute;
+right: 10px;
    text-decoration: none;
    border-radius: 50%;  
    box-shadow: 2px 2px 10px grey;
-   display: flex;
-   flex-direction: column;
+ 
 }
 
 #instragram { 
-   padding: 20px;
-   margin: 20px;
+   padding: 40px;
+   margin: 40px;
+   position: absolute;
+
    text-decoration: none;
    border-radius: 50%;
    box-shadow: 2px 2px 10px grey;
-   display: flex;
-   flex-direction: column;
+  
 }
 
 footer {
     height: 50vh;
   
-    background-position:center;
+    background-position: center;
     background-image: url("/media/background_image.jpg");
     background-size:100vh;
     background-repeat: no-repeat;
-    animation: footer-load var(--load-time) ease-in;
+    animation: footer-load var(--load-time) ease-in-out;
 }
 
 
-span #welcome {
-    margin-bottom: 600vh;
- }
+
 
 #profile_foto {
     object-fit: cover;
@@ -82,6 +78,9 @@ span #welcome {
 @keyframes img-load {
     100% {
         transform: scale(100%);
+    }
+    150% {
+        transform: scale(150%);
     }
     0% {
         transform: scale(0);
