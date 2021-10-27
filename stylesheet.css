@@ -1,16 +1,18 @@
 body {
  font-family: 'Noto Sans Display', sans-serif;
- text-align: center;
- height: 100vh;
- width: 100vw;
  --load-time: 1000ms;
+
+ 
 }
 
-section {
-    margin: 50px;
+main {
+    text-align: center;
+    align-content: center;
+    ;
 }
 
 h1 {
+ 
     font-size: 50pt;
     margin-bottom: 5vh;
 }
@@ -19,50 +21,43 @@ p {
     font-size: 20pt;   
 }
 
-.btn {
-    text-decoration: none;
-    background-color: antiquewhite;
-    box-shadow: 2px 2px 10px grey;
-    padding: 30px;
+em {
+position: relative;
+top: 100px;
+
+
+}
+
+#btn {
     margin: 30px;
-    border-radius: 50px;
-    box-shadow: 2px 2px 10px grey;
-    font-size: 20px;
+    border-radius: 20px;
 }
 
-#linkedIn { 
-   padding: 40px;
-   margin: 40px;
-   position: absolute;
-right: 10px;
-   text-decoration: none;
-   border-radius: 50%;  
-   box-shadow: 2px 2px 10px grey;
- 
-}
+#social_media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    }
 
-#instragram { 
-   padding: 40px;
-   margin: 40px;
-   position: absolute;
+ #linkedIn {
+     margin: 20px;
+     border-radius: 20px;
+ }
 
-   text-decoration: none;
-   border-radius: 50%;
-   box-shadow: 2px 2px 10px grey;
-  
+ #instagram {
+    margin: 20px;
+    border-radius: 20px;
 }
 
 footer {
     height: 50vh;
-  
     background-position: center;
     background-image: url("/media/background_image.jpg");
     background-size:100vh;
     background-repeat: no-repeat;
     animation: footer-load var(--load-time) ease-in-out;
 }
-
-
 
 
 #profile_foto {
@@ -72,7 +67,6 @@ footer {
     box-shadow: 2px 2px 10px grey;
     border-radius: 50%;
     animation: img-load var(--load-time) ease-out;
-
 }
 
 @keyframes img-load {
