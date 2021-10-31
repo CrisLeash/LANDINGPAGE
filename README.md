@@ -5,6 +5,8 @@ A Quasar Framework app
 ## Install the dependencies
 ```bash
 npm install
+
+If quasar command doesn't work, you have to [install Quasar CLI globally](https://quasar.dev/quasar-cli/installation)
 ```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
