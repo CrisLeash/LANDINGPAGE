@@ -21,12 +21,18 @@ p {
     font-size: 20pt;   
 }
 
+#img {
+    margin-top: 10px;
+}
+#description {
+font-size: small;
+}
+
 em {
 position: relative;
 top: 100px;
-
-
 }
+
 
 #btn {
     margin: 30px;
@@ -51,6 +57,7 @@ top: 100px;
 }
 
 footer {
+
     height: 50vh;
     background-position: center;
     background-image: url("/media/background_image.jpg");
@@ -60,7 +67,7 @@ footer {
 }
 
 
-#profile_foto {
+#ilustration {
     object-fit: cover;
     height: 300px;
     width: 300px;

@@ -7,3 +7,9 @@
 //1- make some shape in the background
 //2- make the background move when scrolling
 
+const btnPortfolio = document.getElementById("btn");
+
+btnPortfolio.onClick = (event) => {
+    event.preventDefault();
+    console.log("hello");
+}
