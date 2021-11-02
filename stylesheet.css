@@ -1,7 +1,7 @@
 body {
  font-family: 'Noto Sans Display', sans-serif;
  --load-time: 1000ms;
-
+background-color: #D0BA94;
  
 }
 
@@ -12,13 +12,14 @@ main {
 }
 
 h1 {
- 
+ color: antiquewhite;
     font-size: 50pt;
     margin-bottom: 5vh;
 }
 
 p { 
-    font-size: 20pt;   
+    font-size: 20pt;
+    color: antiquewhite;
 }
 
 #img {
