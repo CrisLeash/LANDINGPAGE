@@ -2,7 +2,7 @@
   <q-page class="q-pa-lg">
     <div class="column items-center">
       <q-avatar class="shadow-5" size="300px">
-        <img src="~assets/cv-foto.jpg">
+        <img src="~assets/mandala.png">
       </q-avatar>
       <div class="text-h1 text-weight-medium q-mt-xl">Hi, I'm Cris.</div>
       <div class="text-h5 text-weight-medium q-mt-sm">Welcome to my first Landing Page, built from scratch.</div>
