@@ -7,5 +7,9 @@
 //1- make some shape in the background
 //2- make the background move when scrolling
 
+const btn = document.querySelector('#btn');
 
-    console.log("hello");
+btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(e);
+});
