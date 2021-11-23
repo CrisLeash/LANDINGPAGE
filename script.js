@@ -9,7 +9,9 @@
 
 const btn = document.querySelector('#btn');
 
-btn.addEventListener('click', (e) => {
+btn.addEventListener('mouseover', (e) => {
     e.preventDefault();
-    console.log(e);
+   document.querySelector('#btn').style.background = '#000';
+   document.querySelector('#btn').style.color = '#ccc';
+   console.log('hello');
 });

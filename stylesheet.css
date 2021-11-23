@@ -8,26 +8,19 @@ background-color: #D0BA94;
 main {
     text-align: center;
     align-content: center;
-    ;
+    
 }
 
 h1 {
  color: antiquewhite;
-    font-size: 50pt;
-    margin-bottom: 5vh;
+    font-size: 1rem;
+   
 }
 
-p { 
-    font-size: 20pt;
-    color: antiquewhite;
-}
-
-#img {
-    margin-top: 10px;
-}
 #description {
-font-size: small;
+    font-size: 20px;
 }
+
 
 em {
 position: relative;
@@ -38,18 +31,20 @@ top: 100px;
 #btn {
     margin: 30px;
     border-radius: 20px;
+    color: black;
+    background-color: blanchedalmond;
 }
 
 #social_media {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     }
 
  #linkedIn {
      margin: 20px;
      border-radius: 20px;
+    
  }
 
  #instagram {
