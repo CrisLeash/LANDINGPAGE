@@ -1,20 +1,17 @@
 body {
- font-family: 'Noto Sans Display', sans-serif;
- --load-time: 1000ms;
-background-color: #D0BA94;
- 
+    font-family: 'Noto Sans Display', sans-serif;
+    --load-time: 1000ms;
+    background-color: #D0BA94;
 }
 
 main {
     text-align: center;
     align-content: center;
-    
 }
 
 h1 {
     color: antiquewhite;
     font-size: 1em;
-   
 }
 
 h2 {
@@ -22,19 +19,29 @@ h2 {
     font-size: 10px;
 }
 
-
-
-
 #description {
     font-size: 20px;
 }
 
-
-em {
-position: relative;
-top: 100px;
+.circle-frame { 
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
+.circle-frame image1 {
+    width: 100%;
+    height: auto;
+}
+
+.circle-frame foto_credits {
+    stroke-width: 20px;
+} 
+em {
+    position: relative;
+    top: 100px;
+}
 
 #btn {
     margin: 30px;
@@ -51,8 +58,7 @@ top: 100px;
 
  #linkedIn {
      margin: 20px;
-     border-radius: 20px;
-    
+     border-radius: 20px; 
  }
 
  #instagram {
@@ -61,7 +67,6 @@ top: 100px;
 }
 
 footer {
-
     height: 50vh;
     background-position: center;
     background-image: url("/media/background_image.jpg");
