@@ -1,7 +1,11 @@
 body {
     font-family: 'Noto Sans Display', sans-serif;
     --load-time: 1000ms;
-    background-color: #D0BA94;
+    background-position: center;
+    background-image: url("media/background_image.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 main {
@@ -56,12 +60,24 @@ em {
     border-radius: 20px;
 }
 
+#copyrigths {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#seperator {   
+    position: relative;
+    top: 10px;
+}
+
+#twitter {
+    margin: 20px;
+    border-radius: 20px;
+}
+
 footer {
-    height: 50vh;
-    background-position: center;
-    background-image: url("media/mandala.jpg");
-    background-size:100vh;
-    background-repeat: no-repeat;
     animation: footer-load var(--load-time) ease-in-out;
 }
 
