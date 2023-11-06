@@ -1,5 +1,5 @@
 body {
-    font-family: 'Noto Sans Display', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     --load-time: 1000ms;
     background-position: center;
     background-image: url("media/background_image.jpg");
@@ -14,14 +14,16 @@ main {
 }
 
 h1 {
-    color: antiquewhite;
-    font-size: 1em;
+   
+    font-size: large
 }
 
+
 h2 {
-    color: antiquewhite;
-    font-size: 10px;
+    font-size: 10px
 }
+
+
 
 #popup_circle {
     position: absolute;
