@@ -1,5 +1,6 @@
 body {
     font-family: serif;
+    letter-spacing: 50%;
     --load-time: 1000ms;
     background-position: center;
     background-size:cover;

@@ -19,6 +19,10 @@ My proficiency rely on Adobe tools, Figma and it's plugins, Inkscape, VSCode and
 
 creating content that is both innovative and practical.
 
-
-
-usually bring a fresh perspective to any project and deliver high-quality, effective solutions.
+ <a1 id="description_2">    
+                    Interests:
+                </a1>
+            <br>
+                <a2 id="description_3">  
+                    Educational physical activity & wellbeing
+                </a2>
