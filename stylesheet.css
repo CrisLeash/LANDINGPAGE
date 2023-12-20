@@ -36,7 +36,7 @@ main {
    width: 100vw;
    height: 100vh;
    font-family: Arial, Helvetica, sans-serif;
-   line-height: 100px;
+   line-height: 60px;
 }
 
 a {
