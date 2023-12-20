@@ -35,6 +35,8 @@ main {
     background-position: center;
    width: 100vw;
    height: 100vh;
+   font-family: Arial, Helvetica, sans-serif;
+   line-height: 100px;
 }
 
 a {
@@ -44,28 +46,49 @@ a {
     background-color: aliceblue;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+
   }
 
   a:hover {
-    background-color: #0056b3;
+    background-color: rgb(45, 45, 45);
+    color: aliceblue;
   }
 
-
+#description_3 {
+    color:rgb(45, 45, 45);
+}
+#welcome {
+    color:aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
 #copyrigths {
     position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
 }
-
 #seperator {   
     position: relative;
     top: 10px;
+}
+#foto_credits {
+    font-family: Arial, Helvetica, sans-serif;
+   color:aliceblue;
+   background-color: rgb(45, 45, 45);
+   padding: 0px;
+}
+em {
+    color: aliceblue;
+
 }
 
 
 footer {
     animation: footer-load var(--load-time) ease-in-out;
+    margin-bottom: 20px;
+   
 }
 
 
