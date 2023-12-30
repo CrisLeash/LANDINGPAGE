@@ -26,3 +26,8 @@ creating content that is both innovative and practical.
                 <a2 id="description_3">  
                     Educational physical activity & wellbeing
                 </a2>
+
+
+Potencial slogans:
+"Design thinking: Always under construction."
+"Design thinking: Embrace the chaos."
