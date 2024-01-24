@@ -41,6 +41,10 @@ main {
     color:aliceblue
 }
 
+#apology {
+    color: aliceblue
+}
+
 a {
     display: inline-block;
     text-decoration: none;
