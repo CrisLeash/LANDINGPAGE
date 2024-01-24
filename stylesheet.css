@@ -13,10 +13,9 @@ main {
 }
 
 #_title1 {
-    text-align: center;
+    text-align: left;
     padding: 50vh;
     color: aliceblue;
-    letter-spacing: 50px;
     line-height: 50px;
 }
 
