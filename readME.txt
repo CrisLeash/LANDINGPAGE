@@ -19,14 +19,9 @@ My proficiency rely on Adobe tools, Figma and it's plugins, Inkscape, VSCode and
 
 creating content that is both innovative and practical.
 
- <a1 id="description_2">    
-                    Interests:
-                </a1>
-            <br>
-                <a2 id="description_3">  
-                    Educational physical activity & wellbeing
-                </a2>
-
+main blue rgb: 21 91 106
+logo color rgb: 0 255 240
+sub color: 223 200 160
 
 Potencial slogans:
 "Design thinking: Always under construction."

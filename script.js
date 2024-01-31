@@ -13,5 +13,5 @@ btn.addEventListener('mouseover', (e) => {
     e.preventDefault();
    document.querySelector('#btn').style.background = '#000';
    document.querySelector('#btn').style.color = '#ccc';
-   console.log('hello');
+  
 });
