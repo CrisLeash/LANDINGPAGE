@@ -45,14 +45,19 @@ body {
    margin: 20px;
 }
 
-#copyrigths {
-    bottom: 0;
-}
+
 
 #credits {
     color:rgb(223, 200, 160);
 }
 
+#copyrigths {
+    bottom: 0;
+}
+
+#contact {
+    font-size: 8pt;
+}
 
 footer {
     animation: footer-load var(--load-time) ease-in-out;
