@@ -7,11 +7,3 @@
 //1- make some shape in the background
 //2- make the background move when scrolling
 
-const btn = document.querySelector('#btn');
-
-btn.addEventListener('mouseover', (e) => {
-    e.preventDefault();
-   document.querySelector('#btn').style.background = '#000';
-   document.querySelector('#btn').style.color = '#ccc';
-  
-});

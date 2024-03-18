@@ -7,16 +7,37 @@ body {
 }
 
 #section01 {
-    text-align: left;
+    display: inline-block;
+    text-align: center;
     padding: 50px;
     height: 100vh;
     color:  rgb(255, 255, 255);
     line-height: 50px;
 }
-
     #apology {
     color: rgb(255, 255, 255);
 }
+
+
+
+
+#ai_Cris {
+    color: rgb(255, 255, 255);
+      width: 100vw;
+align-content: center;
+}
+
+#Cris_photo{
+    max-block-size: 50vh;
+}
+
+#link_Leo{
+    color:  rgb(223, 200, 160);
+    text-align: center;
+    position: relative;
+    max-block-size: 50vh;
+}
+
 
 #_title2 {
     color: rgb(223, 200, 160);
@@ -44,8 +65,6 @@ body {
     color:rgb(223, 200, 160);
    margin: 20px;
 }
-
-
 
 #credits {
     color:rgb(223, 200, 160);
@@ -78,8 +97,9 @@ a {
     background-color: rgb(223, 200, 160);
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    padding:20px;
+    padding: 2pt;
     font-family: Arial, Helvetica, sans-serif;
+    max-height: 100%;
 
   }
 
