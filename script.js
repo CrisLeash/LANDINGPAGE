@@ -1,4 +1,3 @@
-import 'module'
 
 document.getElementById('nace_Link').addEventListener('click', function() {
     window.open('https://www.instagram.com/nace.grg/', '_blank');
@@ -7,12 +6,16 @@ document.getElementById('nace_Link').addEventListener('click', function() {
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+//Camera settings
+
+camera.position = 5,5,5;
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Load and display the SVG
-const loader = new loader();
+const loader = new THREE.SVGLoader();
+
 loader.load('media/sacrix_master_logo.svg', function (data) {
     const paths = data.paths;
     for (let i = 0; i < paths.length; i++) {
@@ -31,6 +34,8 @@ loader.load('media/sacrix_master_logo.svg', function (data) {
         }
     }
 });
+
+
 
 // Animation loop
 function animate() {
