@@ -1,6 +1,12 @@
-
+//cursor style nace Link span hover 
 document.getElementById('nace_Link').addEventListener('click', function() {
     window.open('https://www.instagram.com/nace.grg/', '_blank');
+});
+document.getElementById('nace_Link').addEventListener('mouseover', function() {
+    this.style.cursor = 'pointer';
+});
+document.getElementById('nace_Link').addEventListener('mouseout', function() {
+    this.style.cursor = 'auto';
 });
 
 
