@@ -1,5 +1,4 @@
-import * as THREE from 'https://threejs.org/build/three.module.js';
-import { SVGLoader } from 'https://threejs.org/examples/jsm/loaders/SVGLoader.js';
+import 'module'
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -8,7 +7,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Load and display the SVG
-const loader = new SVGLoader();
+const loader = new loader();
 loader.load('media/sacrix_master_logo.svg', function (data) {
     const paths = data.paths;
     for (let i = 0; i < paths.length; i++) {
