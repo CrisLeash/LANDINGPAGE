@@ -4,30 +4,21 @@ body {
     --load-time: 1000ms;
     background-color: rgb(21, 91, 106);
     text-align: center;
+
 }
 
 
-
-
-@media (max-width: 768px) {
-   .site-nav ul {
-        flex-direction: column;
-    }
-
-   .site-nav ul li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
+h1 {
+    color:   rgb(223, 200, 160);
 }
-
     #apology {
     color: rgb(255, 255, 255);
 }
 
 #ai_Cris {
     color:  rgb(223, 200, 160);
-      width: 100%;
-    align-content: center;
+    width: 100%;
+    align-items: flex-start;
     display: flex;
     text-align: center;
 }
@@ -48,7 +39,6 @@ body {
     position: relative;
     max-block-size: 50vh;
 }
-
 
 #_title2 {
     color: rgb(223, 200, 160);
@@ -81,26 +71,32 @@ body {
     color: rgb(255, 255, 255);
     width: 100%;
     text-align: center;
-  display: grid;
 
 }
 
 #copyrigths {
     bottom: 0;
+
 }
 
 #contact {
     font-size: 8pt;
+
 }
 
 footer {
     animation: footer-load var(--load-time) ease-in-out;
     margin-bottom: 20px;
+
 }
 
 main {
     animation: main-load var(--load-time) ease-in-out;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align to the top */
+    min-height: 100vh; /* Take at least the full viewport height */
+
 }
 
 a {
@@ -119,6 +115,7 @@ a {
   a:hover {
     background-color: rgb(45, 45, 45);
     color: rgb(223, 200, 160);
+
   }
 
 

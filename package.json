@@ -5,7 +5,7 @@
   "main": "your_script.js",
   "scripts": {
     "test": "test_out",
-    "dev": "your_script.js"
+    "dev": "index.html"
   },
   "repository": {
     "type": "git",
