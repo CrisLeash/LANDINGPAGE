@@ -4,7 +4,8 @@
   "description": "landing page",
   "main": "your_script.js",
   "scripts": {
-    "test": "dev"
+    "test": "test_out",
+    "dev": "your_script.js"
   },
   "repository": {
     "type": "git",
