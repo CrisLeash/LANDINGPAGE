@@ -1,0 +1,22 @@
+{
+  "name": "sacrix",
+  "version": "1.0.0",
+  "description": "landing page",
+  "main": "your_script.js",
+  "scripts": {
+    "test": "test_out"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrisLeash/LANDINGPAGE.git"
+  },
+  "keywords": [
+    "git_sacrix"
+  ],
+  "author": "Cristiana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CrisLeash/LANDINGPAGE/issues"
+  },
+  "homepage": "https://github.com/CrisLeash/LANDINGPAGE#readme"
+}
