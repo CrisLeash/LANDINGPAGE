@@ -6,26 +6,37 @@ body {
     text-align: center;
 }
 
-#section01 {
-    display: inline-block;
-    text-align: center;
-    padding: 50px;
-    height: 100vh;
-    color:  rgb(255, 255, 255);
-    line-height: 50px;
+
+
+
+@media (max-width: 768px) {
+   .site-nav ul {
+        flex-direction: column;
+    }
+
+   .site-nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
 }
+
     #apology {
     color: rgb(255, 255, 255);
 }
 
-
-
-
 #ai_Cris {
-    color: rgb(255, 255, 255);
-      width: 100vw;
-align-content: center;
+    color:  rgb(223, 200, 160);
+      width: 100%;
+    align-content: center;
+    display: flex;
+    text-align: center;
 }
+
+.column {
+    flex: 1; /* This makes each column take up equal space */
+    padding: 20px; /* Adds some space around the content */
+}
+
 
 #Cris_photo{
     max-block-size: 50vh;
@@ -54,7 +65,7 @@ align-content: center;
 }
 
     #description {
-    color:rgb(45, 45, 45);
+    color:rgb(223, 200, 160);
 }
 
 #social_media {
@@ -67,7 +78,11 @@ align-content: center;
 }
 
 #credits {
-    color:rgb(223, 200, 160);
+    color: rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+  display: grid;
+
 }
 
 #copyrigths {
@@ -81,13 +96,11 @@ align-content: center;
 footer {
     animation: footer-load var(--load-time) ease-in-out;
     margin-bottom: 20px;
-   
 }
 
 main {
     animation: main-load var(--load-time) ease-in-out;
     margin-bottom: 20px;
-   
 }
 
 a {
@@ -120,8 +133,6 @@ a {
         transform: scale(0);
     }
 }
-
-
 
 @keyframes footer-load {
     0% {

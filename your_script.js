@@ -23,7 +23,7 @@ document.body.appendChild(renderer.domElement);
 
 // Load and display the SVG
 const loader = new SVGLoader(); // Corrected SVGLoader instantiation
-loader.load('media/sacrix_master_logo.svg', function (data) {
+loader.load(newFunction(), function (data) {
     const paths = data.paths;
     for (let i = 0; i < paths.length; i++) {
         const path = paths[i];
@@ -41,6 +41,10 @@ loader.load('media/sacrix_master_logo.svg', function (data) {
         }
     }
 });
+
+function newFunction() {
+    return '/media/sacrix_master_logo.svg';
+}
 
 // Animation loop
 function animate() {
