@@ -1,11 +1,4 @@
-#ai_Cris {
-    color:  rgb(223, 200, 160);
-    width: 100%;
-    align-items: flex-start;
-    display: flex;
-    text-align: center;
-    justify-content: center; /* Centers children horizontally */
-}
+
 
 .column {
     flex: 1; /* This makes each column take up equal space */
@@ -15,6 +8,8 @@
 
 #Cris_photo{
     max-block-size: 50vh;
+    border-radius: 100%;
+ 
 }
 
 #link_Leo{
@@ -29,6 +24,15 @@
     padding: 50px;
 }
 
+#section01 {
+    color:  rgb(223, 200, 160);
+    width: 100%;
+    align-items: flex-start;
+    display: flex;
+    text-align: center;
+    justify-content: center; /* Centers children horizontally */
+}
+
 #section02 {
     background-image: url('media/background_image.jpg');
     background-repeat: no-repeat;
@@ -37,9 +41,10 @@
     height: 90vh;
     padding: 50px;
     color: rgb(21, 91, 106);
+    justify-content:center;
 }
 
-    #description {
+#description {
     color:rgb(223, 200, 160);
 }
 
@@ -66,16 +71,20 @@
 
 #copyrigths {
     bottom: 0;
+    font-size: 8pt;
+    color:   rgb(223, 200, 160);
 
 }
 
 #contacts {
-   
-    color:    rgb(255, 255, 255)
-
+   color: rgb(255, 255, 255);
 }
 
+#contact_biz {
+    font-size: 8pt;
+    color:   rgb(223, 200, 160);
 
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
