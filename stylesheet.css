@@ -45,6 +45,9 @@
 
 #social_media {
     margin: 20px;
+    display: inline;
+    flex: 1; 
+    justify-content: center;
 }
 
 #portfolio {
@@ -56,6 +59,8 @@
     color: rgb(255, 255, 255);
     width: 100%;
     text-align: center;
+    font-size: 8pt;
+    margin-bottom: 50px;
 
 }
 
@@ -64,10 +69,13 @@
 
 }
 
-#contact {
-    font-size: 8pt;
+#contacts {
+   
+    color:    rgb(255, 255, 255)
 
 }
+
+
 
 body {
     font-family: Arial, Helvetica, sans-serif;
