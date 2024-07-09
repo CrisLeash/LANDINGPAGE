@@ -12,6 +12,11 @@
  
 }
 
+#centar_circle {
+    justify-content: center;
+
+}
+
 #link_Leo{
     color:  rgb(223, 200, 160);
     text-align: center;
@@ -25,7 +30,7 @@
 }
 
 #section01 {
-    color:  rgb(223, 200, 160);
+    color:  white;
     width: 100%;
     align-items: flex-start;
     display: flex;
@@ -98,6 +103,10 @@ body {
 
 h1 {
     color:   rgb(223, 200, 160);
+}
+
+h2 {
+    color:  rgb(223, 200, 160);
 }
 
 h3 {
