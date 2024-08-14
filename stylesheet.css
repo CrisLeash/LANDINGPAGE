@@ -8,7 +8,6 @@
     padding: 50px;
     color: #92F6F0;
     justify-content:center;
-  
 }
 
 #portfolio {
@@ -22,7 +21,6 @@
     text-align: center;
     font-size: 8pt;
     margin-bottom: 50px;
-
 }
 
 
@@ -31,19 +29,15 @@
    color: rgb(255, 255, 255);
 }
 
-#contact_biz {
-    
+#contact_biz { 
     font-size: 8pt;
-    color:   rgb(223, 200, 160);
-    
-
+    color:   rgb(223, 200, 160); 
 }
 
 #copyrigths {
   bottom: 0;
   font-size: 8pt;
   color:   rgb(223, 200, 160);
-
 }
 
 body {
@@ -52,8 +46,6 @@ body {
     --load-time: 1000ms;
     background-color: rgb(21, 91, 106);
     text-align: center;
-    
-
 }
 
 h1 {
@@ -94,15 +86,22 @@ a {
     padding: 2pt;
     font-family: Arial, Helvetica, sans-serif;
     max-height: 100%;
-
   }
 
   a:hover {
     background-color: rgb(223, 200, 160);
     color: rgb(223, 200, 160);
-
   }
 
+#circle-animation {
+  animation: growAndMove 10s ease-in-out forwards;
+}
+
+@keyframes growAndMove {
+  0% { transform: scale(1); }
+  50% { transform: scale(10); } /* Circle grows */
+  100% { transform: translateX(1000px) scale(1); } /* Moves and returns to original size */
+}
 
 @keyframes main-load {
     100% {
