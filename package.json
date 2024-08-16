@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/CrisLeash/LANDINGPAGE/issues"
   },
-  "homepage": "https://github.com/CrisLeash/LANDINGPAGE#readme"
+  "homepage": "https://github.com/CrisLeash/LANDINGPAGE#readme",
+  "dependencies": {
+    "gsap": "^3.12.5"
+  }
 }

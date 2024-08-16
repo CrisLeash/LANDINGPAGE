@@ -93,7 +93,7 @@ a {
     color: rgb(223, 200, 160);
   }
 
-#circle-animation {
+#circleAnimation {
   animation: growAndMove 10s ease-in-out forwards;
 }
 
