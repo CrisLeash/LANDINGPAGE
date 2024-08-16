@@ -8,6 +8,7 @@
     padding: 50px;
     color: #92F6F0;
     justify-content:center;
+    animation: strechyPic 2s ease-in-out forwards;
 }
 
 #portfolio {
@@ -93,36 +94,38 @@ a {
     color: rgb(223, 200, 160);
   }
 
-  #sacrix {
+
+
+#sacrix {
     position: relative;
 }
 
 #circleAnimation {
 position: absolute;
-  animation: growAndMove 10s ease-in-out forwards;
+  animation: growAndMove 8s ease-in-out forwards;
 }
 
 #S_letter {
     position:absolute;
-    animation: strechAndStay 5s ease-in-out forwards;
+    animation: strechAndStay 3s ease-in-out forwards;
 
 }
 
 #A_letter {
     position:absolute;
-    animation: strechAndStay 5s ease-in-out forwards;
+    animation: strechAndStay 3s ease-in-out forwards;
 
 }
 
 #C_letter {
     position:absolute;
-    animation: strechAndStay 5s ease-in-out forwards;
+    animation: strechAndStay 3s ease-in-out forwards;
 
 }
 
 #R_letter {
     position:absolute;
-    animation: strechAndStay 5s ease-in-out forwards;
+    animation: strechAndStay 3s ease-in-out forwards;
 
 }
 
@@ -134,8 +137,14 @@ position: absolute;
 
 #X_letter {
     position:absolute;
-    animation: strechAndStay 5s ease-in-out forwards;
+    animation: strechAndStay 3s ease-in-out forwards;
 
+}
+
+@keyframes strechyPic {
+    0% { transform: scale(0); } 
+    50% { transform: scaleX(10); } 
+    100% { transform: scaleX(1); }
 }
 
 @keyframes strechAndStay {
