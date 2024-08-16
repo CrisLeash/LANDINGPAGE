@@ -1,8 +1,14 @@
-import { gasp } from "gasp";
 
 const circleAnimate = document.getElementById('circleAnimation') 
 
 window.addEventListener('scroll', function() {
-circleAnimate.getElementsByClassName
+  const scrollPosition = window.scrollY = 0;
+  const maxScroll = document.documentElement.scrolHeight - this.window.innerHeight;
+
+  const newYposition = 100 + (scrollPosition / maxScroll) * 100;
+
+  circleAnimate.setAttribute('cy', newYposition);
+
   });
+
   
