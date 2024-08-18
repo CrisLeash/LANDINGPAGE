@@ -1,5 +1,5 @@
 
-const circleAnimate = document.getElementById('circleAnimation') 
+const circleAnimate = document.getElementById('circleAnimation' , 'sacrix') 
 
 window.addEventListener('scroll', function() {
   const scrollPosition = window.scrollY = 0;
