@@ -9,16 +9,13 @@ position: absolute;
   animation: growAndMove 8s ease-in-out forwards;
 }
 
-#section02 {
-    background-image: url('media/background_image.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100vw;
-    height: 90vh;
+#section02, #sectionOcto {
+    height: 50%;
     padding: 50px;
     color: #92F6F0;
     justify-content:center;
     animation: strechyPic 2s ease-in-out forwards;
+    animation-delay: inherit;
 }
 
 #portfolio {
