@@ -11,4 +11,6 @@ window.addEventListener('scroll', function() {
 
   });
 
-  
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+});
