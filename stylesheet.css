@@ -48,7 +48,7 @@ position: absolute;
 }
 
 body {
-    animation: main-load var(--load-time) ease-in-out;
+  
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 5px;
     background-color: rgb(21, 91, 106);
@@ -88,12 +88,8 @@ main {
 }
 
 @keyframes footer-load {
-    0% {
-        transform: translateY(100%)
-    }
-    100% {
-        transform: translateY(0%) ;
-    }
+    0% {  transform: translateY(100%)   }
+    100% { transform: translateY(0%) ;  }
 }
 
 
@@ -118,37 +114,37 @@ a {
 
 #S_letter {
     position:absolute;
-    animation: strechAndStay 3s ease-in-out forwards;
+    animation: strechAndStay 1s ease-in-out forwards;
 
 }
 
 #A_letter {
     position:absolute;
-    animation: strechAndStay 3s ease-in-out forwards;
+    animation: strechAndStay 1s ease-in-out forwards;
 
 }
 
 #C_letter {
     position:absolute;
-    animation: strechAndStay 3s ease-in-out forwards;
+    animation: strechAndStay 1s ease-in-out forwards;
 
 }
 
 #R_letter {
     position:absolute;
-    animation: strechAndStay 3s ease-in-out forwards;
+    animation: strechAndStay 1s ease-in-out forwards;
 
 }
 
 #I_letter {
     position:absolute;
-    animation: strechAndStay 5s ease-in-out forwards;
+    animation: strechAndStay 1s ease-in-out forwards;
 
 }
 
 #X_letter {
     position:absolute;
-    animation: strechAndStay 3s ease-in-out forwards;
+    animation: strechAndStay 1s ease-in-out forwards;
 
 }
 
