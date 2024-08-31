@@ -15,8 +15,7 @@ position: absolute;
 
 
 #sectionOcto {
-    animation-delay: 2000ms;
-    
+ max-height: 100vh;
 }
 
 #portfolio {
@@ -42,7 +41,7 @@ position: absolute;
 }
 
 #copyrigths {
- 
+  
   font-size: 8pt;
   color:   rgb(223, 200, 160);
 }
@@ -93,7 +92,7 @@ main {
 }
 
 
-a {
+button {
     display: inline-block;
     text-decoration: none;
     color:rgb(21, 91, 106);
@@ -106,8 +105,16 @@ a {
     max-height: 100%;
   }
 
-  a:hover {
+  button:hover {
     background-color: rgb(223, 200, 160);
+    color:  #92F6F0;
+  }
+
+a {
+    color: rgb(223, 200, 160); 
+}
+
+a:hover {
     color:  #92F6F0;
   }
 
