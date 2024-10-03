@@ -30,7 +30,7 @@ document.getElementById('btn_twitter').addEventListener('click', function() {
   return false;
 });
 
-document.getElementById('btn_gitHub').addEventListener('click', function() {
+document.getElementById('btn_github').addEventListener('click', function() {
   window.open('https://github.com/CrisLeash', '_blank');
   return false;
 });
