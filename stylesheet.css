@@ -68,7 +68,7 @@ h2 {
 
 h3 {
     letter-spacing: 5px;
-    color:white;
+    color:rgb(223, 200, 160);
     font-weight: lighter;
 }
 
@@ -77,22 +77,14 @@ footer {
 }
 
 main {
-  
     display: flex;
     flex-direction: column;    
     max-width: 100vw;
 }
 
-
-@keyframes body {
-    100% {  transform: scale(100%); }
-    120% {   transform: scale(120%); }
-    0% {     transform: scale(0);   }
-}
-
-@keyframes footer-load {
-    0% {  transform: translateY(100%)   }
-    100% { transform: translateY(0%) ;  }
+header {
+    display: inline-block;
+    flex-direction: row;  
 }
 
 
@@ -117,50 +109,70 @@ button {
   }
 
 a {
-   
     color: rgb(223, 200, 160); 
 }
 
 a:hover {
-    
     color:  #92F6F0;
   }
 
+  nav ul {
+    padding: 0;
+  }
 
+  nav li {
+    list-style: none;
+    display: inline;
+    margin-right:20px;
+  }
+
+  nav a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* logo on top animation */
 #S_letter {
     position:absolute;
     animation: strechAndStay 1s ease-in-out forwards;
-
 }
 
 #A_letter {
     position:absolute;
     animation: strechAndStay 1s ease-in-out forwards;
-
 }
 
 #C_letter {
     position:absolute;
     animation: strechAndStay 1s ease-in-out forwards;
-
 }
 
 #R_letter {
     position:absolute;
     animation: strechAndStay 1s ease-in-out forwards;
-
 }
 
 #I_letter {
     position:absolute;
     animation: strechAndStay 1s ease-in-out forwards;
-
 }
 
 #X_letter {
     position:absolute;
     animation: strechAndStay 1s ease-in-out forwards;
+}
 
+  /* animations */
+
+@keyframes body {
+    100% {  transform: scale(100%); }
+    120% {   transform: scale(120%); }
+    0% {     transform: scale(0);   }
+}
+
+@keyframes footer-load {
+    0% {  transform: translateY(100%)   }
+    100% { transform: translateY(0%) ;  }
 }
 
 @keyframes strechyPic {
