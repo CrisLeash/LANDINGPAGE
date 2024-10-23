@@ -15,6 +15,8 @@ window.addEventListener('scroll', function() {
     ScrollTrigger.refresh();
 });
 
+//BUTTONS
+
 document.getElementById('btn_portfolio').addEventListener('click', function() {
   window.open('https://crodrigues.portfoliobox.net/', '_blank');
   return false;
@@ -34,3 +36,9 @@ document.getElementById('btn_github').addEventListener('click', function() {
   window.open('https://github.com/CrisLeash', '_blank');
   return false;
 });
+
+//document.getElementById('btn_gallery').addEventListener('click', function() {
+  //window.open('wannabegallery', '_blank');
+  //return false;
+//});
+

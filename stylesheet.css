@@ -19,7 +19,13 @@ position: absolute;
     height: 50vh;
     align-self: center;
     display: flex;
+    animation: re-load 5s linear infinite;
 }
+
+    @keyframes re-load {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+    }
 
 #portfolio {
     color:rgb(223, 200, 160);
