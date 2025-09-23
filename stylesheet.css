@@ -1,0 +1,208 @@
+#sacrix {
+    position: relative;
+    margin-bottom: 500px;
+    padding: 20px;
+}
+
+#circleAnimation {
+position: absolute;
+  animation: growAndMove 8s ease-in-out forwards;
+}
+
+#blue_text {
+    color: #92F6F0;
+}
+
+
+#credits {
+    color: rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+    font-size: 8pt;
+    margin-bottom: 50px;
+}
+
+#contacts {
+    letter-spacing: 5px;
+   color: rgb(255, 255, 255);
+}
+
+#contact_biz { 
+    font-size: 8pt;
+    color:   rgb(223, 200, 160); 
+}
+
+#copyrigths {
+  font-size: 8pt;
+  color:   rgb(223, 200, 160);
+}
+
+#intro {
+	
+
+	text-align: left;
+	padding-left: 20%;
+	
+}
+
+#social_media {
+	display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* Aligns buttons to the left */
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(21, 91, 106);
+    text-align: center;
+    line-height: 18pt;
+}
+
+h1 {
+    letter-spacing: 5px;
+    color:   rgb(223, 200, 160);
+}
+
+h2 {
+    letter-spacing: 5px;
+    color:  rgb(223, 200, 160);
+}
+
+h3 {
+    letter-spacing: 5px;
+    color:rgb(223, 200, 160);
+    font-weight: lighter;
+}
+
+footer {
+    animation: footer-load var(--load-time) ease-in-out;
+}
+
+p {
+	color: white;
+} 
+
+#btn_linkedin, #btn_twitter, #btn_github, #btn_IG {
+	width: 300px; /* All social media buttons same width */
+    height: 50px;  
+}
+
+main {
+    display: flex;
+    flex-direction: column;    
+    max-width: 100vw;
+}
+
+header {
+    display: inline-block;
+    flex-direction: row;  
+}
+
+
+button {
+    letter-spacing: 5px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: rgb(223, 200, 160);
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    max-width: 100vw;
+    padding: 10pt;
+    font-family: Arial, Helvetica, sans-serif;
+    max-height: 100%;
+  }
+
+  button:hover {
+    background-color: rgb(223, 200, 160);
+    color:  #92F6F0;
+    letter-spacing: 5px;
+  }
+
+a {
+    color: rgb(223, 200, 160); 
+}
+
+a:hover {
+    color:  #92F6F0;
+  }
+
+  nav ul {
+    padding: 0;
+  }
+
+  nav li {
+    list-style: none;
+    display: inline;
+    margin-right:20px;
+  }
+
+  nav a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* logo on top animation */
+#S_letter {
+    position:absolute;
+    animation: strechAndStay 1s ease-in-out forwards;
+}
+
+#A_letter {
+    position:absolute;
+    animation: strechAndStay 1s ease-in-out forwards;
+}
+
+#C_letter {
+    position:absolute;
+    animation: strechAndStay 1s ease-in-out forwards;
+}
+
+#R_letter {
+    position:absolute;
+    animation: strechAndStay 1s ease-in-out forwards;
+}
+
+#I_letter {
+    position:absolute;
+    animation: strechAndStay 1s ease-in-out forwards;
+}
+
+#X_letter {
+    position:absolute;
+    animation: strechAndStay 1s ease-in-out forwards;
+}
+
+  /* animations */
+
+@keyframes body {
+    100% {  transform: scale(100%); }
+    120% {   transform: scale(120%); }
+    0% {     transform: scale(0);   }
+}
+
+@keyframes footer-load {
+    0% {  transform: translateY(100%)   }
+    100% { transform: translateY(0%) ;  }
+}
+
+@keyframes strechyPic {
+    0% { transform: scale(0); } 
+    50% { transform: scaleX(2); } 
+    100% { transform: scaleX(1); }
+}
+
+@keyframes strechAndStay {
+    0%, 100% { transform: scaleY(1); }
+    10% { transform: scaleY(100); } 
+}
+
+@keyframes growAndMove {
+  0% { transform: scale(1); }
+  10% { transform: scale(10); } 
+  80% { transform: translateY(1000px) scale(1); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+
