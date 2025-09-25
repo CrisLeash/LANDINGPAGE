@@ -23,6 +23,7 @@ position: absolute;
 }
 
 #contacts {
+	padding-top: 20px;
     letter-spacing: 5px;
    color: rgb(255, 255, 255);
 }
@@ -38,11 +39,11 @@ position: absolute;
 }
 
 #intro {
-	
+	text-align: center;
+}
 
-	text-align: left;
-	padding-left: 20%;
-	
+#built_scratch {
+	color:bisque;
 }
 
 #social_media {
@@ -98,6 +99,7 @@ main {
 header {
     display: inline-block;
     flex-direction: row;  
+	padding-top: 30%;
 }
 
 
