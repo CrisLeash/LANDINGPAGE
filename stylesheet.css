@@ -40,6 +40,7 @@ position: absolute;
 
 #intro {
 	text-align: center;
+	color: (223, 200, 160);
 }
 
 #built_scratch {
@@ -85,7 +86,7 @@ p {
 	color: white;
 } 
 
-#btn_linkedin, #btn_twitter, #btn_github, #btn_IG {
+#btn_portfolio, #btn_linkedin, #btn_twitter, #btn_github, #btn_IG {
 	width: 300px; /* All social media buttons same width */
     height: 50px;  
 }
