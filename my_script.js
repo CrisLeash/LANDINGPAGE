@@ -43,4 +43,70 @@ document.getElementById('btn_IG').addEventListener('click', function() {
 });
 
 
+// Function to copy text to clipboard
+function copyToClipboard(text) {
+    // Modern approach using Clipboard API
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast('Copied to clipboard! ✓');
+        }).catch(err => {
+            console.error('Failed to copy:', err);
+            fallbackCopy(text);
+        });
+    } else {
+        // Fallback for older browsers
+        fallbackCopy(text);
+    }
+}
 
+// Fallback copy method for older browsers
+function fallbackCopy(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    
+    try {
+        document.execCommand('copy');
+        showToast('Copied to clipboard! ✓');
+    } catch (err) {
+        console.error('Failed to copy:', err);
+        showToast('Failed to copy');
+    }
+    
+    document.body.removeChild(textarea);
+}
+
+// Show toast notification
+function showToast(message) {
+    // Check if toast already exists
+    let toast = document.querySelector('.copy-toast');
+    
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'copy-toast';
+        document.body.appendChild(toast);
+    }
+    
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
+
+// Add click event listeners to copyable elements
+document.addEventListener('DOMContentLoaded', function() {
+    const copyables = document.querySelectorAll('.copyable');
+    
+    copyables.forEach(element => {
+        element.addEventListener('click', function() {
+            const textToCopy = this.getAttribute('data-copy');
+            copyToClipboard(textToCopy);
+        });
+    });
+});
