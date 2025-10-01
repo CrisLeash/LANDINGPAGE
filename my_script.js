@@ -1,4 +1,5 @@
 
+
 const circleAnimate = document.getElementById('circleAnimation' , 'sacrix') 
 
 window.addEventListener('scroll', function() {
@@ -113,11 +114,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // carousel 
- document.addEventListener("DOMContentLoaded", function() {
+
+
+document.addEventListener("DOMContentLoaded", function() {
     const heroSwiper = new Swiper('.hero-swiper .swiper-container', {
       loop: true,
       autoplay: {
-        delay: 5000,
+        delay: 4000,
         disableOnInteraction: false,
       },
       speed: 800,
@@ -129,7 +132,5 @@ document.addEventListener('DOMContentLoaded', function() {
         el: '.hero-swiper .swiper-pagination',
         clickable: true,
       },
-      // optional: responsive breakpoints, etc.
-      // breakpoints: { … }
     });
   });
