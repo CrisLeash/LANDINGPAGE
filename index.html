@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="stylesheet.css">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="media\favicon_sacrix.svg"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
         <title>SACRIX | Welcome 🤓</title>
    
@@ -14,6 +15,40 @@
 <body>
     <main>
             <header>
+				
+					<section class="hero-swiper">
+						  <div class="swiper-container">
+							<div class="swiper-wrapper">
+							  <div class="swiper-slide">
+								<img src="img1.jpg" alt="Slide 1">
+								<div class="slide-overlay">
+								  <h2>UI / UX design</h2>
+								  <p>Global Carrer Tribes</p>
+								</div>
+							  </div>
+							  <div class="swiper-slide">
+								<img src="img2.jpg" alt="Slide 2">
+								<div class="slide-overlay">
+								  <h2>Landing page</h2>
+								  <p> UP Robotics</p>
+								</div>
+							  </div>
+							  <div class="swiper-slide">
+								<img src="img3.jpg" alt="Slide 3">
+								<div class="slide-overlay">
+								  <h2>Web development</h2>
+								  <p>LitterApp</p>
+								</div>
+							  </div>
+							  <!-- Add more slides here -->
+							</div>
+							<!-- Navigation arrows -->
+							<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div>
+							<!-- Pagination (dots) -->
+							<div class="swiper-pagination"></div>
+						  </div>
+					</section>
 
                 <div class="sacrix" width="109" height="31">
                     <svg id="circleAnimation" width="109" height="31" viewBox="0 0 109 31" fill="none" xmlns="http://www.w3.org/2000/svg"> <!-- svg animation--> 
@@ -51,36 +86,21 @@
 		</p>
        
 
-         <div id="social_media">
-			 <div id="portfolio">
-              
-                <button id="btn_portfolio">
-                  <strong>Behance 🎨 </strong>
-                </button>
+      
                
-        </div>			
-                  <button id="btn_linkedin">
-                    <strong> LinkedIn 📝 </strong>
-                  </button>
-			 
-			  <button id="btn_IG">
-                  <strong> Instagram 👥 </strong>
-                </button>
-			 
-                  <button id="btn_github">
-                    <strong> GitHub 💻 </strong>
-                  </button>
-			 
-			  <button id="btn_twitter">
-                    <strong> X (twitter) 🌐 </strong>
-                  </button>
-			 
-			 <div id="built_scratch">
+			<div class="social-button-row">
+				  <button id="btn_portfolio">Behance </button>
+				  <button id="btn_linkedin">LinkedIn</button>
+				  <button id="btn_twitter"> X (Twitter)</button>
+				  <button id="btn_github">GitHub</button>
+				  <button id="btn_IG">Instagram</button>
+			</div>
+
+			<br>
+		
+			<div id="built_scratch">
 					This webpage is the playground for my love for coding. W.I.P. built from scratch 🤓
 			</div>
-			 
-			 
-         </div>  
 
        
 <div id="contacts">

@@ -110,3 +110,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+// carousel 
+ document.addEventListener("DOMContentLoaded", function() {
+    const heroSwiper = new Swiper('.hero-swiper .swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      speed: 800,
+      navigation: {
+        nextEl: '.hero-swiper .swiper-button-next',
+        prevEl: '.hero-swiper .swiper-button-prev',
+      },
+      pagination: {
+        el: '.hero-swiper .swiper-pagination',
+        clickable: true,
+      },
+      // optional: responsive breakpoints, etc.
+      // breakpoints: { … }
+    });
+  });

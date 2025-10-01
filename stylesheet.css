@@ -87,10 +87,31 @@ p {
 	color: white;
 } 
 
-#btn_portfolio, #btn_linkedin, #btn_twitter, #btn_github, #btn_IG {
-	width: 300px; /* All social media buttons same width */
-    height: 50px;  
+.social-button-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
 }
+
+.social-button-row button {
+  all: unset;
+  padding: 10px 20px;
+  border: 1px solid #f5deb3; /* light tan color from your page */
+  border-radius: 6px;
+  color: #f5deb3;
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.social-button-row button:hover {
+  background: #f5deb3;
+  color: #0e4a57; /* your page's BG tone for contrast */
+}
+
 
 main {
     display: flex;
@@ -101,9 +122,8 @@ main {
 header {
     display: inline-block;
     flex-direction: row;  
-	padding-top: 30%;
+	
 }
-
 
 button {
     letter-spacing: 5px;
@@ -139,7 +159,7 @@ a:hover {
   nav li {
     list-style: none;
     display: inline;
-    margin-right:20px;
+    margin-right: 20px;
   }
 
   nav a {
@@ -247,3 +267,47 @@ a:hover {
 
 
 
+.hero-swiper {
+  position: relative;
+  width: 100%;
+  height: 500px; /* adjust to your hero height */
+  overflow: hidden;
+}
+
+.hero-swiper .swiper-container {
+  height: 100%;
+}
+
+.hero-swiper .swiper-slide {
+  position: relative;
+}
+
+.hero-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-swiper .slide-overlay {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 20px;
+  border-radius: 4px;
+}
+
+/* override default swiper arrow styles if needed */
+.hero-swiper .swiper-button-next,
+.hero-swiper .swiper-button-prev {
+  color: #fff;
+  /* optionally, increase size, background, etc. */
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  background: rgba(255,255,255,0.7);
+}
+.hero-swiper .swiper-pagination-bullet-active {
+  background: #fff;
+}
