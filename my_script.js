@@ -114,8 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // carousel 
-
-
 document.addEventListener("DOMContentLoaded", function() {
     const heroSwiper = new Swiper('.hero-swiper .swiper-container', {
       loop: true,
