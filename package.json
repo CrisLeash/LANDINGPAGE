@@ -2,7 +2,7 @@
   "name": "sacrix",
   "version": "1.1.0",
   "description": "landing page",
-  "main": "your_script.js",
+  "main": "my_script.js",
   "scripts": {
     "test": "test_out",
     "dev": "index.html"
