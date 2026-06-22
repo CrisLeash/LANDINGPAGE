@@ -12,10 +12,6 @@ window.addEventListener('scroll', function() {
 
   });
 
-  window.addEventListener('load', () => {
-    ScrollTrigger.refresh();
-});
-
 //BUTTONS
 
 document.getElementById('btn_portfolio').addEventListener('click', function() {
