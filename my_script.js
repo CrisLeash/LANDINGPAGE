@@ -1,17 +1,3 @@
-
-
-const circleAnimate = document.getElementById('circleAnimation' , 'sacrix') 
-
-window.addEventListener('scroll', function() {
-  const scrollPosition = window.scrollY = 0;
-  const maxScroll = document.documentElement.scrolHeight - this.window.innerHeight;
-
-  const newYposition = 100 + (scrollPosition / maxScroll) * 100;
-
-  circleAnimate.setAttribute('cy', newYposition);
-
-  });
-
 //BUTTONS
 
 document.getElementById('btn_portfolio').addEventListener('click', function() {
@@ -109,22 +95,76 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// carousel 
-document.addEventListener("DOMContentLoaded", function() {
-    const heroSwiper = new Swiper('.hero-swiper .swiper-container', {
-      loop: true,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-      },
-      speed: 800,
-      navigation: {
-        nextEl: '.hero-swiper .swiper-button-next',
-        prevEl: '.hero-swiper .swiper-button-prev',
-      },
-      pagination: {
-        el: '.hero-swiper .swiper-pagination',
-        clickable: true,
-      },
+// GALLERY LIGHTBOX (vanilla, no library) — click an image to open it large.
+// ESC or click outside closes; ← / → navigate between gallery images; focus is restored.
+document.addEventListener('DOMContentLoaded', function () {
+  const images = Array.from(document.querySelectorAll('.gallery-grid img'));
+  if (images.length === 0) return;
+
+  let currentIndex = -1;
+  let lastFocused = null;
+
+  // Build the lightbox shell once.
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML = `
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <button class="lightbox-prev" aria-label="Previous">‹</button>
+    <img class="lightbox-img" alt="">
+    <button class="lightbox-next" aria-label="Next">›</button>
+    <p class="lightbox-caption"></p>`;
+  document.body.appendChild(overlay);
+
+  const lbImg = overlay.querySelector('.lightbox-img');
+  const lbCaption = overlay.querySelector('.lightbox-caption');
+  const btnClose = overlay.querySelector('.lightbox-close');
+  const btnPrev = overlay.querySelector('.lightbox-prev');
+  const btnNext = overlay.querySelector('.lightbox-next');
+
+  function show(index) {
+    currentIndex = (index + images.length) % images.length;
+    const img = images[currentIndex];
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt || '';
+    lbCaption.textContent = img.alt || '';
+  }
+
+  function open(index) {
+    lastFocused = document.activeElement;
+    show(index);
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  }
+
+  function close() {
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  images.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function (e) {
+      e.preventDefault(); // images sit inside links — keep the lightbox, not navigation
+      open(i);
     });
   });
+
+  btnClose.addEventListener('click', close);
+  btnNext.addEventListener('click', () => show(currentIndex + 1));
+  btnPrev.addEventListener('click', () => show(currentIndex - 1));
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('show')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') show(currentIndex + 1);
+    else if (e.key === 'ArrowLeft') show(currentIndex - 1);
+  });
+});

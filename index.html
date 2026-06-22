@@ -5,59 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="stylesheet.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="media\favicon_sacrix.svg"/>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-		<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
+        <link rel="icon" type="image/svg+xml" href="media/favicon_sacrix.svg"/>
 
         <title>SACRIX | Welcome 🤓</title>
-   
+        <script src="hero.js" defer></script>
     </head>
 <body>
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <main>
             <header>
-				<!--
-					<section class="hero-swiper">
-						  <div class="swiper-container">
-							<div class="swiper-wrapper">
-							  <div class="swiper-slide">
-								<img src="/media/img1.jpg" alt="Slide 1">
-								<div class="slide-overlay">
-									
-									    <h2>UI / UX design</h2>
-								
-								  <p>Global Carrer Tribes</p>
-								</div>
-							  </div>
-							  <div class="swiper-slide">
-								<img src="/media/img2.jpg" alt="Slide 2">
-								<div class="slide-overlay">
-									<a href="https://up.hr/" target="_blank"  rel="noopener noreferrer"  className="slide-overlay block">
-								  <h2>Visual Identity & Landing Page</h2>
-								  <p> UP Robotics</p> 
-								</div>
-							  </div>
-							  <div class="swiper-slide">
-								<img src="/media/img3.jpg" alt="Slide 3">
-								  <div class="slide-overlay">
-								  <a href="https://litterapp.net/" target="_blank"  rel="noopener noreferrer"  className="slide-overlay block">  
-								    <h2>Web development</h2>
-								  </a>
-								  <p>LitterApp</p>
-								</div>
-							  </div>
-							 
-							</div>
-							
-							<div class="swiper-button-next"></div>
-							<div class="swiper-button-prev"></div>
-						
-							<div class="swiper-pagination"></div>
-						  </div>
-					</section>
-				--> 
-	
 				<br>
 				<br>
 
@@ -96,18 +55,58 @@
 			Portfolio, contacts & links 👇
 		</p>
 				<section class="gallery">
-					<a href="https://globalcareerstribe.com/" target="_blank"  rel="noopener noreferrer"  className="slide-overlay block">
-					<img src="media/img1.jpg" alt="Global Careers Tribe — UI/UX design project by SACRIX">
-					</a>
-					<a href="https://up.hr/" target="_blank"  rel="noopener noreferrer"  className="slide-overlay block">
-					<img src="media/img2.jpg" alt="UP Robotics (up.hr) — visual identity & landing page by SACRIX">
-					</a>
-					<a href="https://litterapp.net/" target="_blank"  rel="noopener noreferrer"  className="slide-overlay block">
-					<img src="media/img3.jpg" alt="LitterApp — web development project by SACRIX">
-					</a>
-					
-					
-					</section>
+					<p class="gallery-intro">Selected work — more coming soon.</p>
+
+					<div class="gallery-category">
+						<h2>UI / UX Design</h2>
+						<div class="gallery-grid">
+							<figure class="gallery-card">
+								<img src="media/img1.jpg" alt="Global Careers Tribe — UI/UX design project by SACRIX">
+								<figcaption class="card-body">
+									<h3>Global Careers Tribe</h3>
+									<a class="card-link" href="https://globalcareerstribe.com/" target="_blank" rel="noopener noreferrer">View project ↗</a>
+								</figcaption>
+							</figure>
+							<div class="gallery-card placeholder">More soon</div>
+						</div>
+					</div>
+
+					<div class="gallery-category">
+						<h2>Product Design</h2>
+						<div class="gallery-grid">
+							<div class="gallery-card placeholder">More soon</div>
+							<div class="gallery-card placeholder">More soon</div>
+						</div>
+					</div>
+
+					<div class="gallery-category">
+						<h2>Website Development</h2>
+						<div class="gallery-grid">
+							<figure class="gallery-card">
+								<img src="media/img2.jpg" alt="UP Robotics (up.hr) — visual identity & landing page by SACRIX">
+								<figcaption class="card-body">
+									<h3>UP Robotics</h3>
+									<a class="card-link" href="https://up.hr/" target="_blank" rel="noopener noreferrer">View project ↗</a>
+								</figcaption>
+							</figure>
+							<figure class="gallery-card">
+								<img src="media/img3.jpg" alt="LitterApp — web development project by SACRIX">
+								<figcaption class="card-body">
+									<h3>LitterApp</h3>
+									<a class="card-link" href="https://litterapp.net/" target="_blank" rel="noopener noreferrer">View project ↗</a>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+
+					<div class="gallery-category">
+						<h2>Workshops</h2>
+						<div class="gallery-grid">
+							<div class="gallery-card placeholder">For kids &amp; adults — coming soon</div>
+							<div class="gallery-card placeholder">More soon</div>
+						</div>
+					</div>
+				</section>
 				
 			<div class="social-button-row">
 				  <button id="btn_portfolio">Behance </button>
@@ -165,7 +164,6 @@
                 </a>
         
     </main>
+    <script src="my_script.js"></script>
 </body>
 </html>
-
-<script src="my_script.js"></script>
