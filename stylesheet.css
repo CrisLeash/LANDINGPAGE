@@ -1,15 +1,21 @@
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(21, 91, 106);
-    text-align: center;
-    line-height: 18pt;
+/* Brand palette — POSTOJEĆE boje vlasnice, samo imenovane (brand se ne mijenja). */
+:root {
+    --teal: rgb(21, 91, 106);
+    --tan: rgb(223, 200, 160);
+    --cyan: #92F6F0;
 }
 
-#sacrix {
-    position: relative;
-    margin-bottom: 500px;
-    padding: 20px;
+/* Teal je na html (ne na body) da fiksni #hero-canvas (z-index:-1) ostane
+   vidljiv. main ostaje nepozicioniran → containing-block loga se ne mijenja. */
+html {
+    background-color: var(--teal);
+}
+
+body {
+    font-family: 'Noto Sans Display', Arial, Helvetica, sans-serif;
+    background-color: transparent;
+    text-align: center;
+    line-height: 18pt;
 }
 
 #circleAnimation {
@@ -21,27 +27,107 @@ position: absolute;
     color: #92F6F0;
 }
 
+/* ── Galerija: sekcija na landingu, po kategorijama ── */
 .gallery {
-	display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
-  gap: 1em;
-  padding: 1em;
-  width: 34%;
-  margin: 0 auto;
-  background: white;		
+  width: min(1100px, 92vw);
+  margin: 2em auto 1em;
+  text-align: left;
 }
 
-.gallery img {
+.gallery-intro {
+  text-align: center;
+  color: var(--tan);
+  letter-spacing: 3px;
+  margin-bottom: 1.5em;
+}
+
+.gallery-category {
+  margin-bottom: 2.5em;
+}
+
+.gallery-category > h2 {
+  text-align: left;
+  letter-spacing: 3px;
+  font-weight: lighter;
+  border-bottom: 1px solid rgba(223, 200, 160, 0.3);
+  padding-bottom: 0.4em;
+  margin-bottom: 1em;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13em, 1fr));
+  gap: 1em;
+}
+
+/* Card = suptilni okvir u brand bojama umjesto bijelog bloka */
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.6em;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(223, 200, 160, 0.18);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+}
+
+.gallery-card img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 0.5em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  display: block;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
+.gallery-card .card-body {
+  padding: 0.7em 0.8em 0.9em;
+}
+
+.gallery-card .card-body h3 {
+  margin: 0 0 0.3em;
+  font-size: 0.95em;
+  letter-spacing: 2px;
+  color: var(--tan);
+}
+
+.gallery-card .card-link {
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.gallery-card .card-link:hover {
+  text-decoration: underline;
+}
+
+/* Placeholder kartica dok prave slike nisu spremne */
+.gallery-card.placeholder {
+  align-items: center;
+  justify-content: center;
+  min-height: 13em;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(223, 200, 160, 0.05),
+      rgba(223, 200, 160, 0.05) 10px,
+      rgba(146, 246, 240, 0.05) 10px,
+      rgba(146, 246, 240, 0.05) 20px
+    );
+  color: rgba(223, 200, 160, 0.6);
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  text-align: center;
+  cursor: default;
+}
+
+.gallery-card.placeholder:hover {
+  transform: none;
+  border-color: rgba(223, 200, 160, 0.18);
 }
 
 #credits {
@@ -71,7 +157,7 @@ position: absolute;
 
 #intro {
 	text-align: center;
-	color: (223, 200, 160);
+	color: var(--tan);
 }
 
 #built_scratch {
@@ -289,47 +375,86 @@ a:hover {
 }
 
 
-.hero-swiper {
-  position: relative;
-  width: 100%;
-  height: 500px; /* adjust to your hero height */
-  overflow: hidden;
-}
-
-.hero-swiper .swiper-container {
-  height: 100%;
-}
-
-.hero-swiper .swiper-slide {
-  position: relative;
-}
-
-.hero-swiper .swiper-slide img {
+/* ── Interaktivni hero canvas (Faza 2) ──
+   Fiksni pozadinski sloj IZA sadržaja. NE wrapper oko loga → ne mijenja
+   containing-block logu, pa animacija loga ostaje identična. */
+#hero-canvas {
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  z-index: -1;          /* iza svega; sadržaj je čitljiv */
+  pointer-events: none; /* ne hvata klikove; čita kursor preko window eventa */
+  display: block;
 }
 
-.hero-swiper .slide-overlay {
+/* ── Lightbox galerije ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 28, 33, 0.92);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.lightbox.show {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-img {
+  max-width: 86vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 0.5em;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
   position: absolute;
-  bottom: 30px;
-  left: 30px;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  padding: 20px;
-  border-radius: 4px;
+  bottom: 4vh;
+  left: 0;
+  right: 0;
+  color: var(--tan);
+  letter-spacing: 2px;
+  font-size: 0.85em;
 }
 
-/* override default swiper arrow styles if needed */
-.hero-swiper .swiper-button-next,
-.hero-swiper .swiper-button-prev {
-  color: #fff;
-  /* optionally, increase size, background, etc. */
+.lightbox button {
+  all: unset;
+  position: absolute;
+  cursor: pointer;
+  color: var(--tan);
+  font-size: 2.5rem;
+  line-height: 1;
+  padding: 0.3em 0.5em;
+  transition: color 0.2s ease;
 }
 
-.hero-swiper .swiper-pagination-bullet {
-  background: rgba(255,255,255,0.7);
+.lightbox button:hover {
+  color: var(--cyan);
 }
-.hero-swiper .swiper-pagination-bullet-active {
-  background: #fff;
+
+.lightbox-close { top: 2vh; right: 3vw; }
+.lightbox-prev  { left: 2vw;  top: 50%; transform: translateY(-50%); }
+.lightbox-next  { right: 2vw; top: 50%; transform: translateY(-50%); }
+
+/* A11y: poštuj prefers-reduced-motion za canvas i tranzicije */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-card,
+  .lightbox {
+    transition: none;
+  }
+}
+
+/* Mobilni razmještaj */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  }
+  .lightbox button { font-size: 2rem; }
 }
