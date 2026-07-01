@@ -68,7 +68,8 @@ position: absolute;
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(13em, 14em));
+  justify-content: center;   /* kartice centrirane umjesto lijevo-poravnate */
   gap: 1em;
 }
 
@@ -101,8 +102,9 @@ position: absolute;
 
 .gallery-card .card-body h3 {
   margin: 0 0 0.3em;
-  font-size: 0.95em;
-  letter-spacing: 2px;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  overflow-wrap: anywhere;   /* duge domene (globalcareerstribe.com) da ne budu odrezane */
   color: var(--tan);
 }
 
@@ -140,6 +142,35 @@ position: absolute;
 .gallery-card.placeholder:hover {
   transform: none;
   border-color: rgba(223, 200, 160, 0.18);
+}
+
+/* ── Horizontalna traka (SHANGO + galerije s puno slika) ──
+   Jedan red koji se skrola/swipea bočno; ostaje ista visina bez obzira na broj
+   fotki. Centrira se kad ih je malo (safe center → bez odsijecanja pri overflowu). */
+.gallery-grid.strip {
+  display: flex;
+  gap: 1em;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  justify-content: safe center;
+  padding-bottom: 0.9em;                 /* zrak za scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(223, 200, 160, 0.5) transparent;
+}
+
+.gallery-grid.strip .gallery-card {
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: center;
+}
+
+.gallery-grid.strip .gallery-card.placeholder {
+  min-height: 0;
+  aspect-ratio: 1;
+}
+
+@media (max-width: 600px) {
+  .gallery-grid.strip .gallery-card { width: 160px; }
 }
 
 #credits {
@@ -256,6 +287,24 @@ p {
   color: var(--teal);
 }
 
+/* "Wanna see more?" — Behance blok (Crisin, samo uredno centriran). */
+.see-more {
+  margin: 2.5em auto 1em;
+  text-align: center;
+  color: bisque;
+}
+
+.see-more h2 {
+  letter-spacing: 3px;
+  font-weight: lighter;
+  margin-bottom: 0.3em;
+}
+
+.see-more p {
+  color: var(--tan);
+  margin: 0 0 1.2em;
+}
+
 .social-button-row {
   display: flex;
   justify-content: center;
@@ -299,10 +348,10 @@ button {
     display: inline-block;
     text-decoration: none;
     background-color: rgb(223, 200, 160);
-    border-radius: 25px;
+    border-radius: 15px;
     transition: background-color 0.3s ease;
     max-width: 100vw;
-    padding: 10pt;
+    padding: 10pt 20pt;
     font-family: Arial, Helvetica, sans-serif;
     max-height: 100%;
   }

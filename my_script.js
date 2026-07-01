@@ -1,28 +1,16 @@
-//BUTTONS
+// BUTTONS — data-driven + null-safe. Ako neki gumb ne postoji u HTML-u, samo se
+// preskoči (ranije je nedostajući #btn_portfolio bacao grešku i rušio cijeli skriptu).
+const SOCIAL_LINKS = {
+  btn_portfolio: 'https://www.behance.net/cristiarodrigu420/projects',
+  btn_linkedin:  'https://www.linkedin.com/in/crodrigues93/',
+  btn_twitter:   'https://twitter.com/cris_Leash',
+  btn_github:    'https://github.com/CrisLeash',
+  btn_IG:        'https://www.instagram.com/crisleash/',
+};
 
-document.getElementById('btn_portfolio').addEventListener('click', function() {
-  window.open('https://www.behance.net/cristiarodrigu420/projects', '_blank');
-  return false;
-});
-
-document.getElementById('btn_linkedin').addEventListener('click', function() {
-  window.open('https://www.linkedin.com/in/crodrigues93/', '_blank');
-  return false;
-});
-
-document.getElementById('btn_twitter').addEventListener('click', function() {
-  window.open('https://twitter.com/cris_Leash', '_blank');
-  return false;
-});
-
-document.getElementById('btn_github').addEventListener('click', function() {
-  window.open('https://github.com/CrisLeash', '_blank');
-  return false;
-});
-
-document.getElementById('btn_IG').addEventListener('click', function() {
-  window.open('https://www.instagram.com/crisleash/', '_blank');
-  return false;
+Object.entries(SOCIAL_LINKS).forEach(([id, url]) => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('click', () => window.open(url, '_blank'));
 });
 
 
