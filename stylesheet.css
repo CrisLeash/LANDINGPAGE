@@ -152,9 +152,14 @@ position: absolute;
 
 #contacts {
 	padding-top: 20px;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
    color: rgb(255, 255, 255);
-	font-size: 10px;
+	font-size: 15px;
+	line-height: 2;
+}
+
+#contacts p {
+	margin: 0.4em 0;
 }
 
 #contact_biz { 
