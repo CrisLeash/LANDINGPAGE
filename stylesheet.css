@@ -1,14 +1,26 @@
-/* Brand palette — POSTOJEĆE boje vlasnice, samo imenovane (brand se ne mijenja). */
+/* Brand palette — POSTOJEĆE boje vlasnice, samo imenovane (brand se ne mijenja).
+   --charcoal je PRIVREMEN (#26363b) dok Cris ne da točan hex iz Dropbox materijala. */
 :root {
     --teal: rgb(21, 91, 106);
     --tan: rgb(223, 200, 160);
     --cyan: #92F6F0;
+    --charcoal: #26363b; /* TODO: zamijeniti točnim brand charcoalom iz Dropboxa */
 }
 
-/* Teal je na html (ne na body) da fiksni #hero-canvas (z-index:-1) ostane
-   vidljiv. main ostaje nepozicioniran → containing-block loga se ne mijenja. */
+/* Hero pozadina: suptilan teal→charcoal gradient (zamijenio particle "dots" na
+   Crisin zahtjev). Fiksiran preko body::before da ne "putuje" pri scrollu i da
+   ostane iza sadržaja. Buduća interakcija se po potrebi doda overlay slojem. */
 html {
     background-color: var(--teal);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(160deg, var(--teal) 0%, var(--teal) 45%, var(--charcoal) 100%);
+    pointer-events: none;
 }
 
 body {
@@ -155,9 +167,18 @@ position: absolute;
   color:   rgb(223, 200, 160);
 }
 
+/* Hero tagline u box s max-width → 2–3 reda na desktopu umjesto jednog dugog. */
+.hero-tagline {
+	max-width: 620px;
+	margin: 1.5em auto 0.5em;
+	padding: 0 1em;
+	line-height: 1.5;
+}
+
 #intro {
 	text-align: center;
 	color: var(--tan);
+	margin-top: 1.5em;
 }
 
 #built_scratch {
@@ -195,6 +216,40 @@ footer {
 p {
 	color: white;
 } 
+
+/* ── About me / Get in touch ── */
+.about {
+  width: min(620px, 92vw);
+  margin: 3em auto 1em;
+  text-align: center;
+}
+
+.about > h2 {
+  letter-spacing: 3px;
+  font-weight: lighter;
+}
+
+.about-text {
+  color: var(--tan);
+  line-height: 1.7;
+  margin: 1em 0 1.6em;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.7em 1.8em;
+  border: 1px solid var(--cyan);
+  border-radius: 25px;
+  color: var(--cyan);
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--cyan);
+  color: var(--teal);
+}
 
 .social-button-row {
   display: flex;
@@ -344,13 +399,15 @@ a:hover {
     position: relative;
 }
 
+/* Hover feedback WITHOUT transform:scale — scaling widened the line past the
+   viewport and triggered a horizontal scrollbar. Opacity + colour instead. */
 .copyable:hover {
     opacity: 0.7;
-    transform: scale(1.05);
+    color: var(--cyan);
 }
 
 .copyable:active {
-    transform: scale(0.95);
+    opacity: 0.5;
 }
 
 /* Toast notification style */
@@ -374,19 +431,6 @@ a:hover {
     opacity: 1;
 }
 
-
-/* ── Interaktivni hero canvas (Faza 2) ──
-   Fiksni pozadinski sloj IZA sadržaja. NE wrapper oko loga → ne mijenja
-   containing-block logu, pa animacija loga ostaje identična. */
-#hero-canvas {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;          /* iza svega; sadržaj je čitljiv */
-  pointer-events: none; /* ne hvata klikove; čita kursor preko window eventa */
-  display: block;
-}
 
 /* ── Lightbox galerije ── */
 .lightbox {
@@ -416,9 +460,11 @@ a:hover {
 
 .lightbox-caption {
   position: absolute;
-  bottom: 4vh;
+  bottom: 10vh;
   left: 0;
   right: 0;
+  margin: 0 auto;
+  max-width: 86vw;
   color: var(--tan);
   letter-spacing: 2px;
   font-size: 0.85em;
@@ -426,22 +472,53 @@ a:hover {
 
 .lightbox button {
   all: unset;
-  position: absolute;
   cursor: pointer;
   color: var(--tan);
-  font-size: 2.5rem;
   line-height: 1;
-  padding: 0.3em 0.5em;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 .lightbox button:hover {
   color: var(--cyan);
 }
 
-.lightbox-close { top: 2vh; right: 3vw; }
-.lightbox-prev  { left: 2vw;  top: 50%; transform: translateY(-50%); }
-.lightbox-next  { right: 2vw; top: 50%; transform: translateY(-50%); }
+/* Close: top-right, generous tap target (≥48px) */
+.lightbox-close {
+  position: absolute;
+  top: 2vh;
+  right: 3vw;
+  font-size: 2.6rem;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(8, 28, 33, 0.5);
+}
+
+/* Prev/Next live in a bottom bar — never overlap the image, so tapping the
+   image can't trigger navigation (the reported mobile bug). */
+.lightbox-nav {
+  position: absolute;
+  bottom: 2.5vh;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.lightbox-nav button {
+  font-size: 2.2rem;
+  min-width: 56px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5em;
+  background: rgba(8, 28, 33, 0.5);
+}
 
 /* A11y: poštuj prefers-reduced-motion za canvas i tranzicije */
 @media (prefers-reduced-motion: reduce) {

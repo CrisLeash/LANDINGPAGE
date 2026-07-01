@@ -11,10 +11,8 @@
         <link rel="icon" type="image/svg+xml" href="media/favicon_sacrix.svg"/>
 
         <title>SACRIX | Welcome 🤓</title>
-        <script src="hero.js" defer></script>
     </head>
 <body>
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <main>
             <header>
 				<br>
@@ -37,20 +35,13 @@
 
             </header>
 
-          <h1>
-              
-          </h1>
-          <h3> 
+          <h3 class="hero-tagline">
                Hi my name is Cris, I help businesses and communities with branding, web design, and digital experiences.
-          </h3> 
-				
-          <br>
-				
-         <p id="intro">    
-				
-			 <br>Freelance Web & Graphic Designer · Brand Identity Specialist · Community Mediator
-			 
-			 <br>
+          </h3>
+
+         <p id="intro">
+			Freelance Web & Graphic Designer · Brand Identity Specialist · Community Mediator
+			<br>
 			Previous work 👇
 		</p>
 				<section class="gallery">
@@ -60,7 +51,7 @@
 						<h2>UI / UX Design</h2>
 						<div class="gallery-grid">
 							<figure class="gallery-card">
-								<img src="media/img1.jpg" alt="Global Careers Tribe — UI/UX design project by SACRIX">
+								<img class="lightboxable" src="media/img1.jpg" alt="Global Careers Tribe — UI/UX design project by SACRIX">
 								<figcaption class="card-body">
 									<h3>Global Careers Tribe</h3>
 									<a class="card-link" href="https://globalcareerstribe.com/" target="_blank" rel="noopener noreferrer">View project ↗</a>
@@ -82,14 +73,14 @@
 						<h2>UI / UX Design</h2>
 						<div class="gallery-grid">
 							<figure class="gallery-card">
-								<img src="media/img2.jpg" alt="UP Robotics (up.hr) — visual identity & landing page by SACRIX">
+								<img class="lightboxable" src="media/img2.jpg" alt="UP Robotics (up.hr) — visual identity & landing page by SACRIX">
 								<figcaption class="card-body">
 									<h3>UP Robotics</h3>
 									<a class="card-link" href="https://up.hr/" target="_blank" rel="noopener noreferrer">View project ↗</a>
 								</figcaption>
 							</figure>
 							<figure class="gallery-card">
-								<img src="media/img3.jpg" alt="LitterApp — web development project by SACRIX">
+								<img class="lightboxable" src="media/img3.jpg" alt="LitterApp — web development project by SACRIX">
 								<figcaption class="card-body">
 									<h3>LitterApp</h3>
 									<a class="card-link" href="https://litterapp.net/" target="_blank" rel="noopener noreferrer">View project ↗</a>
@@ -106,7 +97,40 @@
 						</div>
 					</div>
 				</section>
-				
+
+				<!-- SHANGO — laser-rezani eko-proizvodi. PRIVREMENI demo set (Cris bira finalne
+				     fotke; opise piše Shango kasnije preko data-caption). Bez kategorija. -->
+				<section class="gallery shango">
+					<div class="gallery-category">
+						<h2>SHANGO</h2>
+						<p class="gallery-intro">Custom Made Smart Solutions — laser-cut, sustainable, personalised eco-gifts.</p>
+						<div class="gallery-grid">
+							<figure class="gallery-card"><img class="lightboxable" src="media/shango/shango-01.jpg" alt="SHANGO laser-cut piece" data-caption="Custom laser-cut piece — description coming soon"></figure>
+							<figure class="gallery-card"><img class="lightboxable" src="media/shango/shango-02.jpg" alt="SHANGO laser-cut piece" data-caption="Custom laser-cut piece — description coming soon"></figure>
+							<figure class="gallery-card"><img class="lightboxable" src="media/shango/shango-03.jpg" alt="SHANGO laser-cut piece" data-caption="Custom laser-cut piece — description coming soon"></figure>
+							<figure class="gallery-card"><img class="lightboxable" src="media/shango/shango-04.jpg" alt="SHANGO laser-cut piece" data-caption="Custom laser-cut piece — description coming soon"></figure>
+							<figure class="gallery-card"><img class="lightboxable" src="media/shango/shango-05.jpg" alt="SHANGO laser-cut piece" data-caption="Custom laser-cut piece — description coming soon"></figure>
+							<figure class="gallery-card"><img class="lightboxable" src="media/shango/shango-06.jpg" alt="SHANGO laser-cut piece" data-caption="Custom laser-cut piece — description coming soon"></figure>
+							<figure class="gallery-card"><img class="lightboxable" src="media/shango/shango-07.jpg" alt="SHANGO laser-cut piece" data-caption="Custom laser-cut piece — description coming soon"></figure>
+							<figure class="gallery-card"><img class="lightboxable" src="media/shango/shango-08.jpg" alt="SHANGO laser-cut piece" data-caption="Custom laser-cut piece — description coming soon"></figure>
+							<div class="gallery-card placeholder">More soon</div>
+						</div>
+					</div>
+				</section>
+
+			<!-- ABOUT ME + GET IN TOUCH. Tekst je NACRT (Claude) — Cris ga dotjeruje.
+			     CTA gumb zasad vodi na #contacts (email/telefon); Cris finalizira odredište. -->
+			<section class="about">
+				<h2>About me</h2>
+				<p class="about-text">
+					I'm Cris. I don't do cookie-cutter. I take the time to actually understand your
+					business, your people, and what you're trying to say — then I build the brand,
+					site, or visual identity around that. Honest feedback, no fluff, and work that
+					still feels like <em>you</em> when it's done. That's usually why clients come back.
+				</p>
+				<a class="cta-button" href="#contacts">Get in touch</a>
+			</section>
+
 			<div class="social-button-row">
 				  <button id="btn_portfolio">Behance </button>
 				  <button id="btn_linkedin">LinkedIn</button>
