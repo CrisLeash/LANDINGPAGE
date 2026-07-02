@@ -30,6 +30,14 @@ body {
     line-height: 18pt;
 }
 
+.under-construction {
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(223, 200, 160, 0.72);
+  margin: 1.2em 0 0;
+}
+
 #circleAnimation {
 position: absolute;
   animation: growAndMove 8s ease-in-out forwards;
@@ -75,6 +83,8 @@ position: absolute;
 
 /* Card = suptilni okvir u brand bojama umjesto bijelog bloka */
 .gallery-card {
+  position: relative;
+  margin: 0;
   display: flex;
   flex-direction: column;
   border-radius: 0.6em;
@@ -156,12 +166,27 @@ position: absolute;
   padding-bottom: 0.9em;                 /* zrak za scrollbar */
   scrollbar-width: thin;
   scrollbar-color: rgba(223, 200, 160, 0.5) transparent;
+  cursor: grab;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+}
+
+.gallery-grid.strip.is-interacting {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  user-select: none;
 }
 
 .gallery-grid.strip .gallery-card {
   flex: 0 0 auto;
   width: 220px;
   scroll-snap-align: center;
+}
+
+.gallery-grid.strip img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .gallery-grid.strip .gallery-card.placeholder {
@@ -171,6 +196,104 @@ position: absolute;
 
 @media (max-width: 600px) {
   .gallery-grid.strip .gallery-card { width: 160px; }
+}
+
+.strip-shell {
+  position: relative;
+}
+
+.strip-shell::before,
+.strip-shell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0.9em;
+  z-index: 2;
+  width: clamp(28px, 6vw, 72px);
+  pointer-events: none;
+}
+
+.strip-shell::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--teal), rgba(21, 91, 106, 0));
+}
+
+.strip-shell::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--charcoal), rgba(38, 54, 59, 0));
+}
+
+.shango-showcase {
+  margin-top: 3.4em;
+}
+
+.shango-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5em;
+  border-bottom: 1px solid rgba(223, 200, 160, 0.3);
+  padding-bottom: 0.9em;
+  margin-bottom: 1.2em;
+}
+
+.shango-header h2,
+.shango-header .gallery-intro {
+  margin: 0;
+}
+
+.shango-header h2 {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.shango-header .gallery-intro {
+  text-align: left;
+  margin-top: 0.6em;
+  letter-spacing: 2px;
+}
+
+.shango-tags {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.55em;
+  min-width: min(330px, 100%);
+}
+
+.shango-tags span {
+  border: 1px solid rgba(146, 246, 240, 0.45);
+  border-radius: 999px;
+  color: var(--cyan);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  line-height: 1;
+  padding: 0.65em 0.85em;
+  white-space: nowrap;
+}
+
+.card-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.85em 0.75em;
+  color: white;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  line-height: 1.35;
+  text-align: center;
+  background: linear-gradient(0deg, rgba(8, 28, 33, 0.82), rgba(8, 28, 33, 0));
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.gallery-card:hover .card-overlay,
+.gallery-card:focus-within .card-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #credits {
@@ -256,7 +379,7 @@ p {
 /* ── About me / Get in touch ── */
 .about {
   width: min(620px, 92vw);
-  margin: 3em auto 1em;
+  margin: 3.6em auto 1.4em;
   text-align: center;
 }
 
@@ -285,6 +408,23 @@ p {
 .cta-button:hover {
   background: var(--cyan);
   color: var(--teal);
+}
+
+.contact-actions {
+  margin: 1.7em auto 0;
+  display: grid;
+  gap: 0.75em;
+}
+
+.contact-actions .copyable {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.55em 0.8em;
+  border: 1px solid rgba(223, 200, 160, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  overflow-wrap: anywhere;
 }
 
 /* "Wanna see more?" — Behance blok (Crisin, samo uredno centriran). */
@@ -492,8 +632,12 @@ a:hover {
   inset: 0;
   z-index: 1000;
   display: none;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  padding: 4.8rem 5vw 2rem;
+  box-sizing: border-box;
   background: rgba(8, 28, 33, 0.92);
   opacity: 0;
   transition: opacity 0.25s ease;
@@ -506,17 +650,13 @@ a:hover {
 
 .lightbox-img {
   max-width: 86vw;
-  max-height: 80vh;
+  max-height: min(76vh, calc(100vh - 190px));
   object-fit: contain;
   border-radius: 0.5em;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-caption {
-  position: absolute;
-  bottom: 10vh;
-  left: 0;
-  right: 0;
   margin: 0 auto;
   max-width: 86vw;
   color: var(--tan);
@@ -554,10 +694,6 @@ a:hover {
 /* Prev/Next live in a bottom bar — never overlap the image, so tapping the
    image can't trigger navigation (the reported mobile bug). */
 .lightbox-nav {
-  position: absolute;
-  bottom: 2.5vh;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: center;
   gap: 2.5rem;
@@ -586,6 +722,34 @@ a:hover {
 @media (max-width: 600px) {
   .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  }
+  .shango-header {
+    display: block;
+  }
+  .shango-tags {
+    justify-content: flex-start;
+    margin-top: 1em;
+  }
+  .strip-shell::before,
+  .strip-shell::after {
+    width: 34px;
+  }
+  .card-overlay {
+    opacity: 1;
+    transform: none;
+  }
+  .lightbox {
+    padding: 4rem 4vw 1.25rem;
+    gap: 0.8rem;
+  }
+  .lightbox-img {
+    max-width: 92vw;
+    max-height: calc(100vh - 180px);
+  }
+  .lightbox-caption {
+    max-width: 92vw;
+    font-size: 0.78em;
+    letter-spacing: 1px;
   }
   .lightbox button { font-size: 2rem; }
 }

@@ -10,7 +10,7 @@ const SOCIAL_LINKS = {
 
 Object.entries(SOCIAL_LINKS).forEach(([id, url]) => {
   const el = document.getElementById(id);
-  if (el) el.addEventListener('click', () => window.open(url, '_blank'));
+  if (el) el.addEventListener('click', () => window.open(url, '_blank', 'noopener,noreferrer'));
 });
 
 
@@ -80,6 +80,104 @@ document.addEventListener('DOMContentLoaded', function() {
             copyToClipboard(textToCopy);
         });
     });
+});
+
+// HORIZONTAL STRIPS — desktop edge-hover auto-scroll + mouse drag.
+// Touch devices keep the native swipe behaviour.
+document.addEventListener('DOMContentLoaded', function () {
+  const strips = Array.from(document.querySelectorAll('.gallery-grid.strip'));
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  strips.forEach((strip) => {
+    let hoverFrame = null;
+    let hoverSpeed = 0;
+    let isDragging = false;
+    let didDrag = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+
+    function stopHoverScroll() {
+      hoverSpeed = 0;
+      if (hoverFrame) cancelAnimationFrame(hoverFrame);
+      hoverFrame = null;
+      strip.classList.remove('is-interacting');
+    }
+
+    function animateHoverScroll() {
+      if (!hoverSpeed) {
+        stopHoverScroll();
+        return;
+      }
+      strip.scrollLeft += hoverSpeed;
+      hoverFrame = requestAnimationFrame(animateHoverScroll);
+    }
+
+    if (finePointer) {
+      strip.addEventListener('mousemove', (event) => {
+        if (isDragging) return;
+        const rect = strip.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const edge = rect.width * 0.33;
+        const maxSpeed = 7;
+
+        if (x < edge) {
+          hoverSpeed = -maxSpeed * ((edge - x) / edge);
+        } else if (x > rect.width - edge) {
+          hoverSpeed = maxSpeed * ((x - (rect.width - edge)) / edge);
+        } else {
+          hoverSpeed = 0;
+        }
+
+        if (hoverSpeed && !hoverFrame) {
+          strip.classList.add('is-interacting');
+          hoverFrame = requestAnimationFrame(animateHoverScroll);
+        }
+      });
+
+      strip.addEventListener('mouseleave', stopHoverScroll);
+    }
+
+    strip.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'touch' || event.button !== 0) return;
+      isDragging = true;
+      didDrag = false;
+      startX = event.clientX;
+      startScrollLeft = strip.scrollLeft;
+      stopHoverScroll();
+      strip.classList.add('is-interacting');
+      strip.setPointerCapture(event.pointerId);
+    });
+
+    strip.addEventListener('pointermove', (event) => {
+      if (!isDragging) return;
+      const dx = event.clientX - startX;
+      if (Math.abs(dx) > 4) didDrag = true;
+      strip.scrollLeft = startScrollLeft - dx;
+    });
+
+    function endDrag(event) {
+      if (!isDragging) return;
+      isDragging = false;
+      strip.classList.remove('is-interacting');
+      if (strip.hasPointerCapture(event.pointerId)) {
+        strip.releasePointerCapture(event.pointerId);
+      }
+      if (didDrag) {
+        strip.dataset.suppressClick = '1';
+        window.setTimeout(() => delete strip.dataset.suppressClick, 150);
+      }
+    }
+
+    strip.addEventListener('pointerup', endDrag);
+    strip.addEventListener('pointercancel', endDrag);
+
+    strip.addEventListener('click', (event) => {
+      if (!strip.dataset.suppressClick) return;
+      event.preventDefault();
+      event.stopPropagation();
+      delete strip.dataset.suppressClick;
+    }, true);
+  });
 });
 
 
