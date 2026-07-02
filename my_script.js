@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
   strips.forEach((strip) => {
     let hoverFrame = null;
     let hoverSpeed = 0;
+    let pointerIsDown = false;
     let isDragging = false;
     let didDrag = false;
     let startX = 0;
@@ -139,29 +140,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
     strip.addEventListener('pointerdown', (event) => {
       if (event.pointerType === 'touch' || event.button !== 0) return;
-      isDragging = true;
+      pointerIsDown = true;
+      isDragging = false;
       didDrag = false;
       startX = event.clientX;
       startScrollLeft = strip.scrollLeft;
       stopHoverScroll();
-      strip.classList.add('is-interacting');
-      strip.setPointerCapture(event.pointerId);
     });
 
     strip.addEventListener('pointermove', (event) => {
-      if (!isDragging) return;
+      if (!pointerIsDown) return;
       const dx = event.clientX - startX;
-      if (Math.abs(dx) > 4) didDrag = true;
+      if (!isDragging && Math.abs(dx) > 4) {
+        isDragging = true;
+        didDrag = true;
+        strip.classList.add('is-interacting');
+      }
+      if (!isDragging) return;
       strip.scrollLeft = startScrollLeft - dx;
     });
 
     function endDrag(event) {
-      if (!isDragging) return;
+      if (!pointerIsDown) return;
+      pointerIsDown = false;
       isDragging = false;
       strip.classList.remove('is-interacting');
-      if (strip.hasPointerCapture(event.pointerId)) {
-        strip.releasePointerCapture(event.pointerId);
-      }
       if (didDrag) {
         strip.dataset.suppressClick = '1';
         window.setTimeout(() => delete strip.dataset.suppressClick, 150);
@@ -170,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     strip.addEventListener('pointerup', endDrag);
     strip.addEventListener('pointercancel', endDrag);
+    strip.addEventListener('pointerleave', endDrag);
 
     strip.addEventListener('click', (event) => {
       if (!strip.dataset.suppressClick) return;

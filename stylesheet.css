@@ -272,30 +272,6 @@ position: absolute;
   white-space: nowrap;
 }
 
-.card-overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.85em 0.75em;
-  color: white;
-  font-size: 0.72rem;
-  letter-spacing: 2px;
-  line-height: 1.35;
-  text-align: center;
-  background: linear-gradient(0deg, rgba(8, 28, 33, 0.82), rgba(8, 28, 33, 0));
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  pointer-events: none;
-}
-
-.gallery-card:hover .card-overlay,
-.gallery-card:focus-within .card-overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 #credits {
     color: rgb(255, 255, 255);
     width: 100%;
@@ -411,9 +387,12 @@ p {
 }
 
 .contact-actions {
-  margin: 1.7em auto 0;
+  margin: 1em auto 0;
   display: grid;
   gap: 0.75em;
+  justify-items: center;
+  text-align: center;
+  padding-top: 0;
 }
 
 .contact-actions .copyable {
@@ -425,6 +404,11 @@ p {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.035);
   overflow-wrap: anywhere;
+}
+
+#contacts.contact-actions {
+  padding-top: 0;
+  color: white;
 }
 
 /* "Wanna see more?" — Behance blok (Crisin, samo uredno centriran). */
@@ -733,10 +717,6 @@ a:hover {
   .strip-shell::before,
   .strip-shell::after {
     width: 34px;
-  }
-  .card-overlay {
-    opacity: 1;
-    transform: none;
   }
   .lightbox {
     padding: 4rem 4vw 1.25rem;
