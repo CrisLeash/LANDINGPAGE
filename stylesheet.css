@@ -202,6 +202,11 @@ p {
 	color: white;
 } 
 
+a.button-link {
+	color: black;
+	text-decoration-line: none;
+}
+
 .social-button-row {
   display: flex;
   justify-content: center;
