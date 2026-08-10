@@ -202,9 +202,16 @@ p {
 	color: white;
 } 
 
-a.button-link {
+.button-pop {
+	display: block;
+	margin: 0 auto;
+	width: 50vw;
+}
+
+a.button-behance {
 	color: black;
 	text-decoration-line: none;
+	
 }
 
 .social-button-row {
