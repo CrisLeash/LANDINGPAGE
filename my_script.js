@@ -1,31 +1,3 @@
-//BUTTONS
-
-document.getElementById('btn_portfolio').addEventListener('click', function() {
-  window.open('https://www.behance.net/cristiarodrigu420/projects', '_blank');
-  return false;
-});
-
-document.getElementById('btn_linkedin').addEventListener('click', function() {
-  window.open('https://www.linkedin.com/in/crodrigues93/', '_blank');
-  return false;
-});
-
-document.getElementById('btn_twitter').addEventListener('click', function() {
-  window.open('https://twitter.com/cris_Leash', '_blank');
-  return false;
-});
-
-document.getElementById('btn_github').addEventListener('click', function() {
-  window.open('https://github.com/CrisLeash', '_blank');
-  return false;
-});
-
-document.getElementById('btn_IG').addEventListener('click', function() {
-  window.open('https://www.instagram.com/crisleash/', '_blank');
-  return false;
-});
-
-
 // Function to copy text to clipboard
 function copyToClipboard(text) {
     // Modern approach using Clipboard API

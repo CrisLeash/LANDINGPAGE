@@ -9,13 +9,138 @@
  * rAF se pauzira kad tab nije vidljiv; DPR skaliranje za retina ekrane.
  */
 (function () {
+  // Start reloads at the introduction while preserving history navigation.
+  if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+    history.scrollRestoration = 'manual';
+    window.addEventListener('pageshow', () => {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        history.scrollRestoration = 'auto';
+      });
+    }, { once: true });
+  }
+
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const introduction = document.querySelector('.sacrix-introduction');
+
+  if (introduction && typeof introduction.animate === 'function') {
+    const stage = introduction.querySelector('.sacrix-stage');
+    const duration = 500;
+    const logo = introduction.querySelector('.sacrix > svg');
+    const groups = [...logo.querySelectorAll(':scope > g')];
+    const heading = stage.querySelector('.sacrix-personal h2');
+    const words = [...heading.querySelectorAll('.sacrix-word')];
+    const textMetrics = document.createElement('canvas').getContext('2d');
+    const easing = 'cubic-bezier(0.4, 0, 0.2, 1)';
+
+    function measureHandoff(group, word) {
+      const svgBounds = logo.getBoundingClientRect();
+      const wordBounds = word.getBoundingClientRect();
+      const baselineY = word.querySelector('.sacrix-baseline').getBoundingClientRect().top;
+      const svgScale = svgBounds.width / logo.viewBox.baseVal.width;
+      const paths = [...group.querySelectorAll('path')].map(path => path.getBBox());
+      const left = Math.min(...paths.map(box => box.x));
+      const right = Math.max(...paths.map(box => box.x + box.width));
+      const top = Math.min(...paths.map(box => box.y));
+      const bottom = Math.max(...paths.map(box => box.y + box.height));
+      const style = getComputedStyle(word);
+      textMetrics.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+      textMetrics.letterSpacing = style.letterSpacing;
+      const ink = textMetrics.measureText(word.textContent);
+      const inkWidth = ink.actualBoundingBoxLeft + ink.actualBoundingBoxRight;
+      const inkHeight = ink.actualBoundingBoxAscent + ink.actualBoundingBoxDescent;
+      const scaleX = inkWidth / (svgScale * (right - left));
+      const scaleY = inkHeight / (svgScale * (bottom - top));
+      const x = (wordBounds.left - ink.actualBoundingBoxLeft - svgBounds.left) / svgScale - left * scaleX;
+      const y = (baselineY - ink.actualBoundingBoxAscent - svgBounds.top) / svgScale - top * scaleY;
+      return `matrix(${scaleX}, 0, 0, ${scaleY}, ${x}, ${y})`;
+    }
+    let animations = [];
+    let pendingFrame = null;
+
+    function updateIntroduction() {
+      pendingFrame = null;
+      const travel = introduction.offsetHeight - stage.offsetHeight;
+      const progress = travel > 0
+        ? Math.max(0, Math.min(1, -introduction.getBoundingClientRect().top / travel))
+        : 0;
+
+      for (const animation of animations) animation.currentTime = progress * duration;
+      introduction.classList.toggle('is-personal-visible', progress >= 0.68);
+    }
+
+    function queueIntroductionUpdate() {
+      if (pendingFrame === null) pendingFrame = requestAnimationFrame(updateIntroduction);
+    }
+
+    function setIntroductionMotion() {
+      for (const animation of animations) animation.cancel();
+      animations = [];
+      window.removeEventListener('scroll', queueIntroductionUpdate);
+      window.removeEventListener('resize', setIntroductionMotion);
+      if (pendingFrame !== null) cancelAnimationFrame(pendingFrame);
+      pendingFrame = null;
+      introduction.classList.toggle('is-scroll-linked', !motion.matches);
+      introduction.classList.remove('is-personal-visible');
+      if (motion.matches) return;
+
+      const tracks = [
+        ['.sacrix-lockup', [
+          { opacity: 1, offset: 0 },
+          { opacity: 1, offset: 0.58, easing },
+          { opacity: 0, offset: 0.78 },
+          { opacity: 0, offset: 1 },
+        ]],
+        ['.sacrix-personal h2', [
+          { opacity: 0, offset: 0 },
+          { opacity: 0, offset: 0.58, easing },
+          { opacity: 1, offset: 0.78 },
+          { opacity: 1, offset: 1 },
+        ]],
+        ['.sacrix-personal p', [
+          { opacity: 0, transform: 'translateY(0.5rem)', offset: 0 },
+          { opacity: 0, transform: 'translateY(0.5rem)', offset: 0.62 },
+          { opacity: 1, transform: 'none', offset: 0.94 },
+          { opacity: 1, transform: 'none', offset: 1 },
+        ]],
+      ];
+
+      const options = { duration, fill: 'both' };
+      const handoffTracks = textMetrics
+        ? groups.map((group, index) => {
+          const target = measureHandoff(group, words[index]);
+          return group.animate([
+            { transform: 'matrix(1, 0, 0, 1, 0, 0)', offset: 0, easing },
+            { transform: target, offset: 0.58 },
+            { transform: target, offset: 1 },
+          ], options);
+        })
+        : [];
+
+      animations = [
+        ...handoffTracks,
+        ...tracks.map(([selector, keyframes]) =>
+          introduction.querySelector(selector).animate(keyframes, options)),
+      ];
+      for (const animation of animations) animation.pause();
+
+      updateIntroduction();
+      window.addEventListener('scroll', queueIntroductionUpdate, { passive: true });
+      window.addEventListener('resize', setIntroductionMotion);
+    }
+
+    motion.addEventListener('change', setIntroductionMotion);
+    setIntroductionMotion();
+    document.fonts?.ready.then(setIntroductionMotion);
+  }
+
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
   const CYAN = '#92F6F0';
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduceMotion = motion.matches;
 
   let width = 0;
   let height = 0;
