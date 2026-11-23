@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/cristiana/public_html/
+    - /bin/cp index.html "$DEPLOYPATH"
+    - /bin/cp gallery.html "$DEPLOYPATH"
+    - /bin/cp "Privacy Policy.html" "$DEPLOYPATH"
+    - /bin/cp "Terms and Conditions.html" "$DEPLOYPATH"
+    - /bin/cp stylesheet.css "$DEPLOYPATH"
+    - /bin/cp stylesheet_PP_TC.css "$DEPLOYPATH"
+    - /bin/cp hero.js "$DEPLOYPATH"
+    - /bin/cp my_script.js "$DEPLOYPATH"
+    - /bin/cp -R media "$DEPLOYPATH"
