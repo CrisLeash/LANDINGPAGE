@@ -63,7 +63,8 @@ body {
 }
 
 #circleAnimation {
-    transform-origin: 75.7% 8.1%;
+    transform-box: fill-box;
+    transform-origin: center;
     animation: growAndMove 8s ease-in-out forwards;
 }
 
@@ -73,18 +74,22 @@ body {
     transform-origin: 0 0;
 }
 
+.sacrix-sa,
+.sacrix-crix {
+    stroke: #2a2530;
+    stroke-width: 0.2px;
+    stroke-miterlimit: 10;
+}
+
 .sacrix-slogan {
-    position: absolute;
-    top: calc(100% + 0.75rem);
-    left: 50%;
-    width: max-content;
-    max-width: 90vw;
-    margin: 0;
-    translate: -50% 0;
-    color: var(--tan);
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
-    line-height: 1.4;
-    letter-spacing: 0.08em;
+    fill: #92f4ef;
+    font: 700 7px Helvetica, Arial, sans-serif;
+    letter-spacing: 0;
+}
+
+.sacrix-slogan-lead {
+    font-size: 6.3px;
+    letter-spacing: 0.075em;
 }
 
 .sacrix-personal {
@@ -432,13 +437,6 @@ a:hover {
     text-decoration: none;
   }
 
-/* Stretch each letter around its own center within the larger wordmark. */
-.sacrix path {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: stretchAndStay 1s ease-in-out forwards;
-}
-
   /* animations */
 
 @keyframes body {
@@ -458,15 +456,10 @@ a:hover {
     100% { transform: scaleX(1); }
 }
 
-@keyframes stretchAndStay {
-    0%, 100% { transform: scaleY(1); }
-    10% { transform: scaleY(1.18); }
-}
-
 @keyframes growAndMove {
   0% { transform: scale(1); }
   10% { transform: scale(1.65); }
-  80% { transform: translateY(24%) scale(1); }
+  80% { transform: translateY(9.4px) scale(1); }
   100% { transform: translateY(0px) scale(1); }
 }
 
@@ -575,7 +568,6 @@ a:hover {
 
 /* A11y: poštuj prefers-reduced-motion za canvas i tranzicije */
 @media (prefers-reduced-motion: reduce) {
-  .sacrix path,
   #circleAnimation {
     animation: none;
   }
